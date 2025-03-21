@@ -12,6 +12,7 @@ struct BitemapApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            // anjay
         }
     }
 }
