@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct forYou: View {
+struct ForYou: View {
     var body: some View {
         VStack{
             Text("Hello, World!")
@@ -18,5 +18,5 @@ struct forYou: View {
 }
 
 #Preview {
-    forYou()
+    ForYou()
 }

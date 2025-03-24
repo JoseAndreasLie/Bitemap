@@ -8,15 +8,32 @@
 import Foundation
 import SwiftUI
 
-struct explore: View {
+struct Explore: View {
     var body: some View {
-        VStack{
-            Text("Hello, World!")
-            Text("Ini Explore Page")
+        NavigationView {
+            NavigationLink(destination:
+                Canteen()
+                .navigationBarTitle(Text("Detail"))
+            ) {
+                ScrollView() {
+                    CanteenCard()
+                    CanteenCard()
+                    CanteenCard()
+                    CanteenCard()
+                    CanteenCard()
+                    CanteenCard()
+                    CanteenCard()
+                    CanteenCard()
+                    CanteenCard()
+                }
+                .padding(.horizontal)
+                .scrollIndicators(.hidden, axes: [.vertical, .horizontal])
+                .background(Color.gray.opacity(0.1))
+            }.navigationBarTitle(Text("Explore"))
         }
     }
 }
 
 #Preview {
-    explore()
+    Explore()
 }
