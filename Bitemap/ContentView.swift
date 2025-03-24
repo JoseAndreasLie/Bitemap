@@ -9,13 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView(
+            selection: /*@START_MENU_TOKEN@*/ /*@PLACEHOLDER=Selection@*/
+            .constant(1) /*@END_MENU_TOKEN@*/
+        ) {
+            forYou() // ada di folder ./Pages/forYou.swift
+                .tabItem {
+                    Text("For You")
+                }
+                .tag(1)
+            explore() // ada di folder ./Pages/explore.swift
+                .tabItem {
+                    Text("Explore")
+                }
+                .tag(2)
         }
-        .padding()
     }
 }
 
