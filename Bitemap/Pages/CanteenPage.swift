@@ -8,12 +8,13 @@
 import Foundation
 import SwiftUI
 
-public struct Canteen: View {
+public struct CanteenPage: View {
     public var body: some View {
+        Text("Ini masuk kantin")
         CanteenCard()
     }
 }
 
 #Preview {
-    Canteen()
+    CanteenPage()
 }

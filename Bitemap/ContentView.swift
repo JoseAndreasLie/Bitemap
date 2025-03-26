@@ -13,14 +13,14 @@ struct ContentView: View {
             selection: /*@START_MENU_TOKEN@*/ /*@PLACEHOLDER=Selection@*/
             .constant(1) /*@END_MENU_TOKEN@*/
         ) {
-            ForYou() // ada di folder ./Pages/forYou.swift
+            ForYouPage() // ada di folder ./Pages/forYou.swift
                 .tabItem {
-                    Text("For You")
+                    Label("Kantin", systemImage: "list.dash")
                 }
                 .tag(1)
-            Explore() // ada di folder ./Pages/explore.swift
+            ExplorePage() // ada di folder ./Pages/explore.swift
                 .tabItem {
-                    Text("Explore")
+                    Label("Explore", systemImage: "magnifyingglass")
                 }
                 .tag(2)
         }
