@@ -16,21 +16,20 @@ struct MyItem: Identifiable {
 let myItems = [MyItem(name: "Apple"), MyItem(name: "Banana")]
 
 struct ExplorePage: View {
+    var canteenNames: [String] = ["Kasturi", "Kartika", "Sari", "Ayam", "ASU", "goreng", "tepung"]
     var body: some View {
         NavigationStack {
-            NavigationLink(destination:
-                            CanteenPage()
-                .navigationBarTitle(Text("Detail"))
-            ) {
-                ScrollView() {
-                    // bisa pakek VStack() buat pastiin dia atas bawah :>
-                    ForEach(nama){ nama in
-                        CanteenCard(name: nama).padding(.vertical, 4)
+            ScrollView{
+                VStack{
+                    ForEach(canteenNames, id:\.self){canteenName in
+                        NavigationLink(destination: CanteenPage(canteenName: canteenName)){
+                            CanteenCard(canteenName: canteenName, locationName:"GOP 2", description: "Kasturi adalah sebuah makanan yang berasal dari daerah Sumatera Utara", image: "")
+                            
+                                .padding(.vertical, 4)
+                        }.buttonStyle(PlainButtonStyle())
                     }
                 }
-                .padding(.horizontal)
-                .scrollIndicators(.hidden, axes: [.vertical])
-            }.navigationBarTitle(Text("Explore"))
+            }.padding()
         }
         
     }
