@@ -11,8 +11,9 @@ import SwiftUI
 struct CanteenCard: View {
     @State var canteenName: String
     @State var locationName: String
-    @State var description: String
     @State var image: String
+    @State var tags: [Tag]
+    @State var location: String
     var body: some View {
         HStack(spacing: 12) {
             Image(systemName:"fork.knife")
@@ -30,7 +31,7 @@ struct CanteenCard: View {
                     Spacer()
                     Image(systemName: "mappin.and.ellipse")
                         .foregroundColor(.green)
-                    Text("GOP 6")
+                    Text(location)
                         .font(.system(size: 14, weight: .bold, design: .default))
                         .foregroundColor(Color("CustomGreen"))
                     
@@ -39,10 +40,11 @@ struct CanteenCard: View {
                 /**
                  VVV Component Label VVV
                 */
-                Text("Label")
-                    .font(.system(size: 10, weight: .regular, design: .default))
-                Text("Label")
-                    .font(.system(size: 10, weight: .regular, design: .default))
+//                Text("Label")
+//                    .font(.system(size: 10, weight: .regular, design: .default))
+//                Text("Label")
+//                    .font(.system(size: 10, weight: .regular, design: .default))
+                ChipLabelView(tags: tags.map { $0.name})
                 //*********//
                 HStack{
                     Spacer()
@@ -59,7 +61,7 @@ struct CanteenCard: View {
                 }
             }
             .padding(.trailing, 4)
-            .frame(height: 106)
+            .frame(height: 150)
         }
         .frame(width: UIScreen.main.bounds.width * 0.875)
         .padding(8)
@@ -69,6 +71,6 @@ struct CanteenCard: View {
     }
 }
 
-#Preview {
-    CanteenCard(canteenName: "Kasturi", locationName:"GOP 2", description: "Kasturi adalah sebuah makanan yang berasal dari daerah Sumatera Utara", image: "")
-}
+//#Preview {
+//    CanteenCard(canteenName: "Kasturi", locationName:"GOP 2", image: "", tags: ["nasi","ayam","sapi"])
+//}

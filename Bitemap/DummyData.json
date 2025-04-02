@@ -1,250 +1,60 @@
-{
-  "GOP 1": {
-    "Canteen 1": {
-      "Menu 1": {
-        "name": "Nasi Goreng",
-        "price": 25000,
-        "Tags": {
-          "cuisine": ["Indonesian"],
-          "nutritional": {
-            "protein": ["chicken"],
-            "carbs": ["rice"]
-          }
-        }
-      },
-      "Menu 2": {
-        "name": "Mie Ayam",
-        "price": 20000,
-        "Tags": {
-          "cuisine": ["Indonesian"],
-          "nutritional": {
-            "protein": ["chicken"],
-            "carbs": ["noodles"]
-          }
-        }
-      }
+[
+  {
+    "id": "1",
+    "nama": "Kantin A",
+    "location": {
+      "id": "loc1",
+      "name": "Gedung A",
+      "images": ["gedungA_1.jpg", "gedungA_2.jpg", "gedungA_3.jpg"],
+      "desc": ["Masuk dari pintu utama", "Belok kanan menuju lorong", "Kantin ada di sebelah kiri"],
+      "long": 123.456,
+      "lat": -6.789
     },
-    "Canteen 2": {
-      "Menu 1": {
-        "name": "Soto Ayam",
-        "price": 22000,
-        "Tags": {
-          "cuisine": ["Indonesian"],
-          "nutritional": {
-            "protein": ["chicken"],
-            "carbs": ["rice"]
-          }
-        }
-      },
-      "Menu 2": {
-        "name": "Rendang",
-        "price": 35000,
-        "Tags": {
-          "cuisine": ["Indonesian"],
-          "nutritional": {
-            "protein": ["beef"],
-            "carbs": ["rice"]
-          }
-        }
-      }
-    }
+    "tags": [
+      { "id": "t1", "name": "Rice" },
+      { "id": "t2", "name": "Indonesia" },
+      { "id": "t3", "name": "Chicken" },
+      { "id": "t4", "name": "Beef" },
+      { "id": "t5", "name": "Noodle" },
+      { "id": "t6", "name": "Potato" },
+      { "id": "t7", "name": "Fish" },
+      { "id": "t8", "name": "Japanese"},
+      { "id": "t9", "name": "Egg"}
+    ],
+    "menu": [
+      { "id": "m1", "nama": "Nasi Goreng", "category": "Makanan", "price": 15000 },
+      { "id": "m2", "nama": "Es Teh", "category": "Minuman", "price": 5000 },
+      { "id": "m3", "nama": "Soto Ayam", "category": "Makanan", "price": 20000 },
+      { "id": "m4", "nama": "Es Jeruk", "category": "Minuman", "price": 5000 },
+      { "id": "m5", "nama": "Gado-Gado", "category": "Makanan", "price": 15000 },
+      { "id": "m6", "nama": "Chicken Katsu", "category": "Makanan", "price": 25000 },
+      { "id": "m7", "nama": "Es Ocha", "category": "Minuman", "price": 5000 },
+      { "id": "m8", "nama": "Chicken Teriyaki", "category": "Makanan", "price": 25000 },
+      { "id": "m9", "nama": "Nasi Putih", "category": "Makanan", "price": 6000 },
+      { "id": "m10", "nama": "Kentang Rebus", "category": "Makanan", "price": 8000 },
+      { "id": "m11", "nama": "Ikan Dori Asam Manis", "category": "Makanan", "price": 9000 },
+      { "id": "m12", "nama": "Beef Yakiniku", "category": "Makanan", "price": 30000 },
+      { "id": "m13", "nama": "Indomie", "category": "Makanan", "price": 8000 },
+    ]
   },
-  "GOP 2": {
-    "Canteen 1": {
-      "Menu 1": {
-        "name": "Bakso",
-        "price": 18000,
-        "Tags": {
-          "cuisine": ["Indonesian"],
-          "nutritional": {
-            "protein": ["beef"],
-            "carbs": ["noodles"]
-          }
-        }
-      },
-      "Menu 2": {
-        "name": "Gado-Gado",
-        "price": 20000,
-        "Tags": {
-          "cuisine": ["Indonesian"],
-          "nutritional": {
-            "protein": ["tofu", "egg"],
-            "carbs": ["rice"]
-          }
-        }
-      }
+  {
+    "id": "2",
+    "nama": "Kantin B",
+    "location": {
+      "id": "loc2",
+      "name": "Gedung B",
+      "images": ["gedungB_1.jpg", "gedungB_2.jpg"],
+      "desc": ["Masuk lewat pintu samping", "Kantin ada di dekat tangga"],
+      "long": 120.567,
+      "lat": -7.890
     },
-    "Canteen 2": {
-      "Menu 1": {
-        "name": "Ayam Penyet",
-        "price": 25000,
-        "Tags": {
-          "cuisine": ["Indonesian"],
-          "nutritional": {
-            "protein": ["chicken"],
-            "carbs": ["rice"]
-          }
-        }
-      },
-      "Menu 2": {
-        "name": "Pempek",
-        "price": 23000,
-        "Tags": {
-          "cuisine": ["Indonesian"],
-          "nutritional": {
-            "protein": ["fish"],
-            "carbs": ["flour"]
-          }
-        }
-      }
-    }
-  },
-  "GOP 3": {
-    "Canteen 1": {
-      "Menu 1": {
-        "name": "Sate Ayam",
-        "price": 30000,
-        "Tags": {
-          "cuisine": ["Indonesian"],
-          "nutritional": {
-            "protein": ["chicken"],
-            "carbs": ["rice"]
-          }
-        }
-      },
-      "Menu 2": {
-        "name": "Lontong Sayur",
-        "price": 20000,
-        "Tags": {
-          "cuisine": ["Indonesian"],
-          "nutritional": {
-            "protein": ["egg"],
-            "carbs": ["rice"]
-          }
-        }
-      }
-    },
-    "Canteen 2": {
-      "Menu 1": {
-        "name": "Ikan Bakar",
-        "price": 35000,
-        "Tags": {
-          "cuisine": ["Indonesian"],
-          "nutritional": {
-            "protein": ["fish"],
-            "carbs": ["rice"]
-          }
-        }
-      },
-      "Menu 2": {
-        "name": "Capcay",
-        "price": 22000,
-        "Tags": {
-          "cuisine": ["Chinese-Indonesian"],
-          "nutritional": {
-            "protein": ["shrimp"],
-            "carbs": ["rice"]
-          }
-        }
-      }
-    },
-    "Canteen 3": {
-      "Menu 1": {
-        "name": "Martabak Telur",
-        "price": 28000,
-        "Tags": {
-          "cuisine": ["Indonesian"],
-          "nutritional": {
-            "protein": ["egg", "beef"],
-            "carbs": ["flour"]
-          }
-        }
-      },
-      "Menu 2": {
-        "name": "Ketoprak",
-        "price": 18000,
-        "Tags": {
-          "cuisine": ["Indonesian"],
-          "nutritional": {
-            "protein": ["tofu"],
-            "carbs": ["rice"]
-          }
-        }
-      }
-    }
-  },
-  "GOP 4": {
-    "Canteen 1": {
-      "Menu 1": {
-        "name": "Tahu Gejrot",
-        "price": 15000,
-        "Tags": {
-          "cuisine": ["Indonesian"],
-          "nutritional": {
-            "protein": ["tofu"],
-            "carbs": []
-          }
-        }
-      },
-      "Menu 2": {
-        "name": "Soto Betawi",
-        "price": 32000,
-        "Tags": {
-          "cuisine": ["Indonesian"],
-          "nutritional": {
-            "protein": ["beef"],
-            "carbs": ["rice"]
-          }
-        }
-      }
-    },
-    "Canteen 2": {
-      "Menu 1": {
-        "name": "Nasi Uduk",
-        "price": 25000,
-        "Tags": {
-          "cuisine": ["Indonesian"],
-          "nutritional": {
-            "protein": ["chicken", "egg"],
-            "carbs": ["rice"]
-          }
-        }
-      },
-      "Menu 2": {
-        "name": "Seblak",
-        "price": 20000,
-        "Tags": {
-          "cuisine": ["Sundanese"],
-          "nutritional": {
-            "protein": ["egg"],
-            "carbs": ["noodles"]
-          }
-        }
-      }
-    },
-    "Canteen 3": {
-      "Menu 1": {
-        "name": "Ayam Betutu",
-        "price": 40000,
-        "Tags": {
-          "cuisine": ["Balinese"],
-          "nutritional": {
-            "protein": ["chicken"],
-            "carbs": ["rice"]
-          }
-        }
-      },
-      "Menu 2": {
-        "name": "Tongseng Kambing",
-        "price": 45000,
-        "Tags": {
-          "cuisine": ["Indonesian"],
-          "nutritional": {
-            "protein": ["mutton"],
-            "carbs": ["rice"]
-          }
-        }
-      }
-    }
+    "tags": [
+      { "id": "t17", "name": "ayam" },
+      { "id": "t18", "name": "indonesia" }
+    ],
+    "menu": [
+      { "id": "m10", "nama": "Ayam Geprek", "category": "Makanan", "price": 18000 },
+      { "id": "m11", "nama": "Jus Alpukat", "category": "Minuman", "price": 10000 }
+    ]
   }
-}
+]
