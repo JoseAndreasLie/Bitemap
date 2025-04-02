@@ -5,27 +5,62 @@
 //  Created by Jose Andreas Lie on 25/03/25.
 //
 
-import Foundation
+//import Foundation
+import SwiftUI
 
-struct MenuModel: Identifiable, Codable {
-    var id = UUID()
-    var name: String
-    var price: Int
-    var tags: TagsModel
-    
-    enum CodingKeys: String, CodingKey {
-        case name
-        case price
-        case tags = "Tags"
+struct Location: Codable, Equatable, Hashable {
+    let id: String
+    let name: String
+    let images: [String] // Array gambar, urut sesuai step
+    let desc: [String] // Array deskripsi, harus sama jumlahnya dengan images
+    let long: Double
+    let lat: Double
+}
+
+struct Tag: Codable, Identifiable, Hashable {
+    let id: String
+    let name: String
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+    static func == (lhs: Tag, rhs: Tag) -> Bool {
+        return lhs.id == rhs.id
     }
 }
 
-struct TagsModel: Codable {
-    var cuisine: [String]
-    var nutritional: NutritionalModel
+struct Menu: Codable, Identifiable, Equatable, Hashable {
+    let id: String
+    let nama: String
+    let category: String // Gunakan String dulu kalau enum error
+    let price: Double
 }
 
-struct NutritionalModel: Codable {
-    var protein: [String]
-    var carbs: [String]
+enum MenuCategory: String, Codable, CaseIterable {
+    case nasi, kentang, mie, ayam, daging, ikan, indonesia, western, japanese
 }
+
+
+//struct MenuModel: Identifiable, Codable {
+//    var id = UUID()
+//    var name: String
+//    var price: Int
+//    var tags: TagsModel
+//
+//    enum CodingKeys: String, CodingKey {
+//        case name
+//        case price
+//        case tags = "Tags"
+//    }
+//}
+//
+//struct TagsModel: Codable {
+//    var cuisine: [String]
+//    var nutritional: NutritionalModel
+//}
+//
+//struct NutritionalModel: Codable {
+//    var protein: [String]
+//    var carbs: [String]
+//}

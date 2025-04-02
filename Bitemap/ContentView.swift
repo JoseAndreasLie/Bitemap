@@ -9,10 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        TabView(
-            selection: /*@START_MENU_TOKEN@*/ /*@PLACEHOLDER=Selection@*/
-            .constant(1) /*@END_MENU_TOKEN@*/
-        ) {
+        TabView {
             ForYouPage() // ada di folder ./Pages/forYou.swift
                 .tabItem {
                     Label("Kantin", systemImage: "list.dash")
