@@ -8,19 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("hasSeenPreferences") private var hasSeenPreferences = false
     var body: some View {
-        TabView {
-            ForYouPage() // ada di folder ./Pages/forYou.swift
-                .tabItem {
-                    Label("Kantin", systemImage: "list.dash")
+        if !hasSeenPreferences {
+            PreferencePage(
+                onFinish: {
+                    hasSeenPreferences = true
                 }
-                .tag(1)
-            ExplorePage() // ada di folder ./Pages/explore.swift
-                .tabItem {
-                    Label("Explore", systemImage: "magnifyingglass")
-                }
-                .tag(2)
-        }
+            )
+        } else {
+            TabView {
+                ForYouPage() // ada di folder ./Pages/forYou.swift
+                    .tabItem {
+                        Label("Kantin", systemImage: "list.dash")
+                    }
+                    .tag(1)
+                ExplorePage() // ada di folder ./Pages/explore.swift
+                    .tabItem {
+                        Label("Explore", systemImage: "magnifyingglass")
+                    }
+                    .tag(2)
+            }
+        }   
     }
 }
 
