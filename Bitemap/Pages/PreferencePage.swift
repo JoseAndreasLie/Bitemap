@@ -11,19 +11,22 @@ struct PreferencePage: View {
     var onFinish: () -> Void
     
     @State private var userPreference: [UserPreferencesModel] = []
-    @State private var tags: [String] = ["Rice", "Indonesia", "Chicken", "Beef", "Noodle", "Potato", "Fish", "Japanese", "Egg"]
+    @State private var tags: [String] = []
     @State private var selectedTags: [String] = []
     
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(spacing: 20) {
+                VStack(alignment: .center, spacing: 20) {
                     Text("What do you like?")
                         .font(.headline)
+                        .multilineTextAlignment(.leading)
                         .bold()
                         .padding()
                     
                     tagGrid
+                    
+                    Spacer()
                     
                     Button("Save Preferences") {
                         userPreference = selectedTags.map { tag in
@@ -43,15 +46,19 @@ struct PreferencePage: View {
                 }
                 .padding(4)
             }
+            .padding(/*@START_MENU_TOKEN@*/.all, 4.0/*@END_MENU_TOKEN@*/)
             .navigationTitle("Preferences")
         }
+        .onAppear{
+            loadTagsFromJSON()
+        }
         .onChange(of: selectedTags) {
-            print("\n\n\n\n\n")
+            print("\n\n")
             print("Selected Tags:", selectedTags)
             print("Available Tags:", tags)
         }
     }
-
+    
     private var tagGrid: some View {
         let columns = [GridItem(.adaptive(minimum: 100), spacing: 10)]
         
@@ -75,10 +82,21 @@ struct PreferencePage: View {
             selectedTags.append(tag)
         }
     }
+    
+    
+    private func loadTagsFromJSON() {
+        if let url = Bundle.main.url(forResource: "DummyData", withExtension: "json"),
+           let data = try? Data(contentsOf: url),
+           let kantins = try? JSONDecoder().decode([Kantin].self, from: data) {
+            
+            let allTags = kantins.flatMap { $0.tags.map { $0.name } }
+            tags = Array(Set(allTags)).sorted()
+        } else {
+            print("Failed to load or parse kantin_data.json")
+        }
+    }
 }
 
 #Preview {
-    PreferencePage(onFinish: {
-        print("Pindah Page")
-    })
+    PreferencePage(onFinish: {})
 }

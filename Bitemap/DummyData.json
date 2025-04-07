@@ -34,7 +34,7 @@
       { "id": "m10", "nama": "Kentang Rebus", "category": "Makanan", "price": 8000 },
       { "id": "m11", "nama": "Ikan Dori Asam Manis", "category": "Makanan", "price": 9000 },
       { "id": "m12", "nama": "Beef Yakiniku", "category": "Makanan", "price": 30000 },
-      { "id": "m13", "nama": "Indomie", "category": "Makanan", "price": 8000 },
+      { "id": "m13", "nama": "Indomie", "category": "Makanan", "price": 8000 }
     ]
   },
   {
@@ -42,7 +42,7 @@
     "nama": "Kantin B",
     "location": {
       "id": "loc2",
-      "name": "Gedung B",
+      "name": "The Breeze",
       "images": ["gedungB_1.jpg", "gedungB_2.jpg"],
       "desc": ["Masuk lewat pintu samping", "Kantin ada di dekat tangga"],
       "long": 120.567,
@@ -55,6 +55,117 @@
     "menu": [
       { "id": "m10", "nama": "Ayam Geprek", "category": "Makanan", "price": 18000 },
       { "id": "m11", "nama": "Jus Alpukat", "category": "Minuman", "price": 10000 }
+    ]
+  },
+  {
+    "id": "3",
+    "nama": "Kantin C",
+    "location": {
+      "id": "loc3",
+      "name": "GOP 6",
+      "images": ["gedungC_1.jpg", "gedungC_2.jpg"],
+      "desc": ["Masuk dari lobby tengah", "Naik tangga ke lantai 2", "Di sebelah ruang tunggu"],
+      "long": 121.000,
+      "lat": -6.700
+    },
+    "tags": [
+      { "id": "t19", "name": "Western" },
+      { "id": "t20", "name": "Burger" },
+      { "id": "t21", "name": "Fries" }
+    ],
+    "menu": [
+      { "id": "m14", "nama": "Burger Keju", "category": "Makanan", "price": 22000 },
+      { "id": "m15", "nama": "Kentang Goreng", "category": "Makanan", "price": 12000 },
+      { "id": "m16", "nama": "Cola", "category": "Minuman", "price": 7000 }
+    ]
+  },
+  {
+    "id": "4",
+    "nama": "Kantin D",
+    "location": {
+      "id": "loc4",
+      "name": "GOP 9",
+      "images": ["gedungD_1.jpg", "gedungD_2.jpg"],
+      "desc": ["Dari parkiran belakang", "Lewat pintu darurat", "Lurus sampai ujung lorong"],
+      "long": 122.345,
+      "lat": -6.800
+    },
+    "tags": [
+      { "id": "t22", "name": "Bakso" },
+      { "id": "t23", "name": "Mie" },
+      { "id": "t24", "name": "Sate" }
+    ],
+    "menu": [
+      { "id": "m17", "nama": "Bakso Urat", "category": "Makanan", "price": 15000 },
+      { "id": "m18", "nama": "Mie Ayam", "category": "Makanan", "price": 13000 },
+      { "id": "m19", "nama": "Sate Ayam", "category": "Makanan", "price": 18000 },
+      { "id": "m20", "nama": "Teh Botol", "category": "Minuman", "price": 6000 }
+    ]
+  },
+  {
+    "id": "5",
+    "nama": "Kantin E",
+    "location": {
+      "id": "loc5",
+      "name": "GOP 1",
+      "images": ["gedungE_1.jpg"],
+      "desc": ["Masuk dari pintu timur", "Lurus hingga aula", "Kantin di sebelah kanan"],
+      "long": 123.460,
+      "lat": -6.785
+    },
+    "tags": [
+      { "id": "t25", "name": "Korean" },
+      { "id": "t26", "name": "Spicy" },
+      { "id": "t27", "name": "Bibimbap" }
+    ],
+    "menu": [
+      { "id": "m21", "nama": "Bibimbap", "category": "Makanan", "price": 27000 },
+      { "id": "m22", "nama": "Kimchi", "category": "Makanan", "price": 10000 },
+      { "id": "m23", "nama": "Susu Pisang", "category": "Minuman", "price": 8000 }
+    ]
+  },
+  {
+    "id": "6",
+    "nama": "Kantin F",
+    "location": {
+      "id": "loc6",
+      "name": "GOP 6",
+      "images": ["gedungF_1.jpg"],
+      "desc": ["Masuk dari lobby samping", "Naik lift ke lantai 3", "Kantin di depan ruang meeting"],
+      "long": 121.005,
+      "lat": -6.705
+    },
+    "tags": [
+      { "id": "t28", "name": "Snack" },
+      { "id": "t29", "name": "Waffle" },
+      { "id": "t30", "name": "Juice" }
+    ],
+    "menu": [
+      { "id": "m24", "nama": "Waffle Coklat", "category": "Makanan", "price": 15000 },
+      { "id": "m25", "nama": "Jus Mangga", "category": "Minuman", "price": 9000 },
+      { "id": "m26", "nama": "Jus Semangka", "category": "Minuman", "price": 9000 }
+    ]
+  },
+  {
+    "id": "7",
+    "nama": "Kantin G",
+    "location": {
+      "id": "loc7",
+      "name": "GOP 9",
+      "images": ["gedungG_1.jpg"],
+      "desc": ["Lewat tangga darurat", "Masuk pintu kiri", "Dekat ruang istirahat dosen"],
+      "long": 122.350,
+      "lat": -6.805
+    },
+    "tags": [
+      { "id": "t31", "name": "Vegan" },
+      { "id": "t32", "name": "Healthy" },
+      { "id": "t33", "name": "Salad" }
+    ],
+    "menu": [
+      { "id": "m27", "nama": "Salad Buah", "category": "Makanan", "price": 12000 },
+      { "id": "m28", "nama": "Smoothie Alpukat", "category": "Minuman", "price": 11000 },
+      { "id": "m29", "nama": "Roti Gandum", "category": "Makanan", "price": 7000 }
     ]
   }
 ]
