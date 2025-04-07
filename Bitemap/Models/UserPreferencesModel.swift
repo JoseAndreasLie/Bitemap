@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserPreferencesModel: Identifiable {
+struct UserPreferencesModel: Identifiable, Codable{
     var id = UUID()
     var tag: String
     var count: Int

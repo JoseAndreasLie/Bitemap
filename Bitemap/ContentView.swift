@@ -15,7 +15,9 @@ struct ContentView: View {
                 onFinish: {
                     hasSeenPreferences = true
                 }
-            )
+            ).onAppear{
+                print("Has Seen Preferences:", hasSeenPreferences)
+            }
         } else {
             TabView {
                 ForYouPage() // ada di folder ./Pages/forYou.swift
@@ -28,11 +30,18 @@ struct ContentView: View {
                         Label("Explore", systemImage: "magnifyingglass")
                     }
                     .tag(2)
+            }.onAppear{
+                print("Has Seen Preferences:", hasSeenPreferences)
             }
-        }   
+        }
     }
 }
 
 #Preview {
     ContentView()
+        .onAppear {
+        #if DEBUG
+        UserDefaults.standard.removeObject(forKey: "hasSeenPreferences")
+        #endif
+    }
 }

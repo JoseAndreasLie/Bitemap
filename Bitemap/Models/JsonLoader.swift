@@ -11,17 +11,6 @@ import Foundation
 class KantinViewModel: ObservableObject {
     @Published var kantins: [Kantin] = []
     @Published var selectedTags: Set<Tag> = []
-    @Published var availableTags: [Tag] = [
-        Tag(id: "1", name: "nasi"),
-        Tag(id: "2", name: "kentang"),
-        Tag(id: "3", name: "mie"),
-        Tag(id: "4", name: "ayam"),
-        Tag(id: "5", name: "daging"),
-        Tag(id: "6", name: "ikan"),
-        Tag(id: "7", name: "indonesia"),
-        Tag(id: "8", name: "western"),
-        Tag(id: "9", name: "japanese")
-    ]
 
     init() {
         self.kantins = loadKantinData()
@@ -57,10 +46,4 @@ class KantinViewModel: ObservableObject {
             return []
         }
     }
-    
-    func setSelectedTags(tags: [String]) {
-        selectedTags = Set(availableTags.filter { tags.contains($0.name) })
-    }
 }
-
-

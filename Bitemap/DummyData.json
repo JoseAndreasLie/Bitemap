@@ -1,10 +1,10 @@
 [
   {
     "id": "1",
-    "nama": "Kantin A",
+    "nama": "Kasturi",
     "location": {
       "id": "loc1",
-      "name": "Gedung A",
+      "name": "GOP 1",
       "images": ["gedungA_1.jpg", "gedungA_2.jpg", "gedungA_3.jpg"],
       "desc": ["Masuk dari pintu utama", "Belok kanan menuju lorong", "Kantin ada di sebelah kiri"],
       "long": 123.456,

@@ -30,6 +30,11 @@ struct PreferencePage: View {
                             UserPreferencesModel(tag: tag, count: 2)
                         }
                         
+                        // Encode and store
+                        if let encoded = try? JSONEncoder().encode(userPreference) {
+                            UserDefaults.standard.set(encoded, forKey: "userPreferences")
+                        }
+                        
                         print("Saved user preferences: \(userPreference)")
                         onFinish()
                     }
