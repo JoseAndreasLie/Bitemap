@@ -33,7 +33,7 @@ class KantinViewModel: ObservableObject {
 
     func loadKantinData() -> [Kantin] {
         guard let url = Bundle.main.url(forResource: "DummyData", withExtension: "json") else {
-            print("File JSON tidak ditemukan!")
+//            print("File JSON tidak ditemukan!")
             return []
         }
 
@@ -42,7 +42,7 @@ class KantinViewModel: ObservableObject {
             let kantins = try JSONDecoder().decode([Kantin].self, from: data)
             return kantins
         } catch {
-            print("Error loading JSON: \(error)")
+//            print("Error loading JSON: \(error)")
             return []
         }
     }

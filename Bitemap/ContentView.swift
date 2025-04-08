@@ -16,7 +16,7 @@ struct ContentView: View {
                     hasSeenPreferences = true
                 }
             ).onAppear{
-                print("Has Seen Preferences:", hasSeenPreferences)
+//                print("Has Seen Preferences:", hasSeenPreferences)
             }
         } else {
             TabView {
@@ -31,7 +31,7 @@ struct ContentView: View {
                     }
                     .tag(2)
             }.onAppear{
-                print("Has Seen Preferences:", hasSeenPreferences)
+//                print("Has Seen Preferences:", hasSeenPreferences)
             }
         }
     }
