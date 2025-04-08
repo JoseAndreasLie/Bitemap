@@ -15,7 +15,7 @@ struct CanteenCard: View {
     @State var location: String
     var body: some View {
         HStack(spacing: 12) {
-            Image(systemName:"fork.knife")
+            Image(image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .foregroundColor(.black)
@@ -28,9 +28,8 @@ struct CanteenCard: View {
                     Text(canteenName)
                         .font(.system(size: 17, weight: .semibold, design: .default))
                     Spacer()
-                    Image(image)
+                    Image(systemName: "mappin.and.ellipse")
                         .foregroundColor(.green)
-                        .resizable()
                     Text(location)
                         .font(.system(size: 14, weight: .bold, design: .default))
                         .foregroundColor(Color("CustomGreen"))
@@ -40,9 +39,7 @@ struct CanteenCard: View {
                 ChipLabelView(tags: tags.map { $0.name})
                 HStack{
                     Spacer()
-                    Button(action: {
-                        print("Button tapped")
-                    }) {
+                    HStack {
                         Text("See Menu")
                             .frame(width: 86, height: 27)
                             .font(.system(size: 11, weight: .semibold, design: .default))

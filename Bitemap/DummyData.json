@@ -4,9 +4,9 @@
     "nama": "Kasturi",
     "location": {
       "id": "loc1",
-      "name": "GOP 1",
-      "images": ["gedungA_1.jpg", "gedungA_2.jpg", "gedungA_3.jpg"],
-      "desc": ["Masuk dari pintu utama", "Belok kanan menuju lorong", "Kantin ada di sebelah kiri"],
+      "name": "GOP 9",
+      "images": ["GOP9_1", "GOP9_2", "GOP9_3", "GOP9_4", "Kasturi"],
+      "desc": ["Dari arah lobby", "Masuk ke arah lift dan tangga lalu turun", "Setelah turun ke basement, belok ke kiri", "Lurus terus hingga menemukan tanda Green Eatery", "Kasturi ada di ujung sebelah kiri dari pintu masuk"],
       "long": 123.456,
       "lat": -6.789
     },
@@ -39,12 +39,12 @@
   },
   {
     "id": "2",
-    "nama": "Kantin B",
+    "nama": "Ahza",
     "location": {
       "id": "loc2",
-      "name": "The Breeze",
-      "images": ["gedungB_1.jpg", "gedungB_2.jpg"],
-      "desc": ["Masuk lewat pintu samping", "Kantin ada di dekat tangga"],
+      "name": "GOP9",
+      "images": ["GOP9_1", "GOP9_2", "GOP9_3", "GOP9_4", "Ahza"],
+      "desc": ["Dari arah lobby", "Masuk ke arah lift dan tangga lalu turun", "Setelah turun ke basement, belok ke kiri", "Lurus terus hingga menemukan tanda Green Eatery", "Kantin Ahza ada di sebelah kanan setelah pintu masuk."],
       "long": 120.567,
       "lat": -7.890
     },
@@ -60,12 +60,12 @@
   },
   {
     "id": "3",
-    "nama": "Kantin C",
+    "nama": "Kedai 2 Nyonya",
     "location": {
       "id": "loc3",
-      "name": "GOP 6",
-      "images": ["gedungC_1.jpg", "gedungC_2.jpg"],
-      "desc": ["Masuk dari lobby tengah", "Naik tangga ke lantai 2", "Di sebelah ruang tunggu"],
+      "name": "GOP 9",
+      "images": ["GOP9_1", "GOP9_2", "GOP9_3", "GOP9_4", "Kedai2Nyonya"],
+      "desc": ["Dari arah lobby", "Masuk ke arah lift dan tangga lalu turun", "Setelah turun ke basement, belok ke kiri", "Lurus terus hingga menemukan tanda Green Eatery", "Kantin Kedai 2 Nyonya ada di sebelah kiri setelah pintu masuk"],
       "long": 121.000,
       "lat": -6.700
     },
@@ -82,12 +82,12 @@
   },
   {
     "id": "4",
-    "nama": "Kantin D",
+    "nama": "Dapoer Cowek",
     "location": {
       "id": "loc4",
       "name": "GOP 9",
-      "images": ["gedungD_1.jpg", "gedungD_2.jpg"],
-      "desc": ["Dari parkiran belakang", "Lewat pintu darurat", "Lurus sampai ujung lorong"],
+      "images": ["GOP9_1", "GOP9_2", "GOP9_3", "GOP9_4", "DapoerCowek"],
+      "desc": ["Dari arah lobby", "Masuk ke arah lift dan tangga lalu turun", "Setelah turun ke basement, belok ke kiri", "Lurus terus hingga menemukan tanda Green Eatery", "Kantin Dapoer Cowek ada di sebelah kanan setelah pintu masuk."],
       "long": 122.345,
       "lat": -6.800
     },
@@ -105,12 +105,12 @@
   },
   {
     "id": "5",
-    "nama": "Kantin E",
+    "nama": "Mustafa",
     "location": {
       "id": "loc5",
       "name": "GOP 1",
-      "images": ["gedungE_1.jpg"],
-      "desc": ["Masuk dari pintu timur", "Lurus hingga aula", "Kantin di sebelah kanan"],
+      "images": ["GOP9_1", "GOP9_2", "GOP9_3", "GOP9_4", "Mustafa"],
+      "desc": ["Dari arah lobby", "Masuk ke arah lift dan tangga lalu turun", "Setelah turun ke basement, belok ke kiri", "Lurus terus hingga menemukan tanda Green Eatery", "Kantin Mustafa ada di sebelah kanan ujung setelah pintu masuk."],
       "long": 123.460,
       "lat": -6.785
     },
