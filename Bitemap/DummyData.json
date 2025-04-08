@@ -49,8 +49,8 @@
       "lat": -7.890
     },
     "tags": [
-      { "id": "t17", "name": "ayam" },
-      { "id": "t18", "name": "indonesia" }
+      { "id": "t17", "name": "Chicken" },
+      { "id": "t18", "name": "Indonesia" }
     ],
     "menu": [
       { "id": "m10", "nama": "Ayam Geprek", "category": "Makanan", "price": 18000 },
@@ -166,6 +166,72 @@
       { "id": "m27", "nama": "Salad Buah", "category": "Makanan", "price": 12000 },
       { "id": "m28", "nama": "Smoothie Alpukat", "category": "Minuman", "price": 11000 },
       { "id": "m29", "nama": "Roti Gandum", "category": "Makanan", "price": 7000 }
+    ]
+  },
+  {
+    "id": "8",
+    "nama": "Kantin H",
+    "location": {
+      "id": "loc8",
+      "name": "GOP 2",
+      "images": ["gedungH_1.jpg"],
+      "desc": ["Dekat area parkir motor", "Masuk dari pintu barat"],
+      "long": 124.123,
+      "lat": -6.800
+    },
+    "tags": [
+      { "id": "t34", "name": "Chicken" },
+      { "id": "t35", "name": "Rice" },
+      { "id": "t36", "name": "Egg" }
+    ],
+    "menu": [
+      { "id": "m30", "nama": "Chicken Curry", "category": "Makanan", "price": 22000 },
+      { "id": "m31", "nama": "Telur Dadar", "category": "Makanan", "price": 8000 },
+      { "id": "m32", "nama": "Air Mineral", "category": "Minuman", "price": 4000 }
+    ]
+  },
+  {
+    "id": "9",
+    "nama": "Kantin I",
+    "location": {
+      "id": "loc9",
+      "name": "GOP 3",
+      "images": ["gedungI_1.jpg"],
+      "desc": ["Masuk lewat lobi utama", "Di seberang lift"],
+      "long": 125.321,
+      "lat": -6.795
+    },
+    "tags": [
+      { "id": "t37", "name": "Fish" },
+      { "id": "t38", "name": "Noodle" },
+      { "id": "t39", "name": "Indonesia" }
+    ],
+    "menu": [
+      { "id": "m33", "nama": "Ikan Bakar", "category": "Makanan", "price": 25000 },
+      { "id": "m34", "nama": "Mie Goreng", "category": "Makanan", "price": 13000 },
+      { "id": "m35", "nama": "Teh Manis", "category": "Minuman", "price": 5000 }
+    ]
+  },
+  {
+    "id": "10",
+    "nama": "Kantin J",
+    "location": {
+      "id": "loc10",
+      "name": "GOP 4",
+      "images": ["gedungJ_1.jpg"],
+      "desc": ["Lewat jalur selatan", "Dekat ruang pertemuan"],
+      "long": 126.789,
+      "lat": -6.810
+    },
+    "tags": [
+      { "id": "t40", "name": "Snack" },
+      { "id": "t41", "name": "Juice" },
+      { "id": "t42", "name": "Healthy" }
+    ],
+    "menu": [
+      { "id": "m36", "nama": "Granola Bar", "category": "Makanan", "price": 10000 },
+      { "id": "m37", "nama": "Jus Jeruk", "category": "Minuman", "price": 9000 },
+      { "id": "m38", "nama": "Pudding Chia", "category": "Makanan", "price": 12000 }
     ]
   }
 ]
