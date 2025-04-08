@@ -8,25 +8,40 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("hasSeenPreferences") private var hasSeenPreferences = false
     var body: some View {
-        TabView(
-            selection: /*@START_MENU_TOKEN@*/ /*@PLACEHOLDER=Selection@*/
-            .constant(1) /*@END_MENU_TOKEN@*/
-        ) {
-            forYou() // ada di folder ./Pages/forYou.swift
-                .tabItem {
-                    Text("For You")
+        if !hasSeenPreferences {
+            PreferencePage(
+                onFinish: {
+                    hasSeenPreferences = true
                 }
-                .tag(1)
-            explore() // ada di folder ./Pages/explore.swift
-                .tabItem {
-                    Text("Explore")
-                }
-                .tag(2)
+            ).onAppear{
+//                print("Has Seen Preferences:", hasSeenPreferences)
+            }
+        } else {
+            TabView {
+                ForYouPage() // ada di folder ./Pages/forYou.swift
+                    .tabItem {
+                        Label("Kantin", systemImage: "list.dash")
+                    }
+                    .tag(1)
+                ExplorePage() // ada di folder ./Pages/explore.swift
+                    .tabItem {
+                        Label("Explore", systemImage: "magnifyingglass")
+                    }
+                    .tag(2)
+            }.onAppear{
+//                print("Has Seen Preferences:", hasSeenPreferences)
+            }
         }
     }
 }
 
 #Preview {
     ContentView()
+        .onAppear {
+        #if DEBUG
+        UserDefaults.standard.removeObject(forKey: "hasSeenPreferences")
+        #endif
+    }
 }
