@@ -11,11 +11,9 @@ struct ExplorePage: View {
     @ObservedObject var viewModel = KantinViewModel()
     @State private var showFilterSheet = false
     
-
     var body: some View {
         NavigationStack {
             VStack {
-                // Tombol Filter untuk membuka Sheet
                 Button(action: {
                     showFilterSheet.toggle()
                 }) {
@@ -42,7 +40,6 @@ struct ExplorePage: View {
                             NavigationLink(destination: CanteenPage(kantin: kantin)) {
                                 CanteenCard(
                                     canteenName: kantin.nama,
-                                    locationName: kantin.location.name,
                                     image: kantin.location.images[0],
                                     tags: kantin.tags,
                                     location: kantin.location.name
@@ -64,7 +61,7 @@ struct ExplorePage: View {
 }
 
 struct FilterSheet: View {
-    @ObservedObject var viewModel: KantinViewModel
+    @ObservedObject var viewModel = KantinViewModel()
     @State private var totalWidth: CGFloat = 0
     @State private var currentRow: [Tag] = []
     @Environment(\.dismiss) var dismiss
@@ -151,7 +148,7 @@ struct FilterSheet: View {
     
     // Fungsi untuk mengelompokkan tag menjadi baris-baris
     private func generateRows(for tags: [String], geometry: GeometryProxy) -> [[String]] {
-        var rows: [[String]] = [[]]
+        var rows: [[String]] = []
         var currentRow: [String] = []
         var totalWidth: CGFloat = 0
         
@@ -177,7 +174,6 @@ struct FilterSheet: View {
         return rows
     }
     
-    // ChipButton dengan tampilan terpilih dan tidak terpilih
     struct ChipButton: View {
         var tagName: String
         var isSelected: Bool
@@ -191,11 +187,10 @@ struct FilterSheet: View {
                     .padding(.horizontal, 12)
                     .padding(.vertical, 8)
                     .background(isSelected ? Color.blue : Color.white)
-//                    .background(Capsule().stroke( isSelected ? Color.green : Color.white, lineWidth: 1))
                     .cornerRadius(16)
                     .overlay(
                                 Capsule()
-                                    .stroke(Color.gray, lineWidth: 0.5) // Border dengan warna merah
+                                    .stroke(Color.gray, lineWidth: 0.5)
                             )
             }
         }

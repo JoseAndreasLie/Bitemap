@@ -10,7 +10,6 @@ import SwiftUI
 
 struct CanteenCard: View {
     @State var canteenName: String
-    @State var locationName: String
     @State var image: String
     @State var tags: [Tag]
     @State var location: String
@@ -29,23 +28,16 @@ struct CanteenCard: View {
                     Text(canteenName)
                         .font(.system(size: 17, weight: .semibold, design: .default))
                     Spacer()
-                    Image(systemName: "mappin.and.ellipse")
+                    Image(image)
                         .foregroundColor(.green)
+                        .resizable()
                     Text(location)
                         .font(.system(size: 14, weight: .bold, design: .default))
                         .foregroundColor(Color("CustomGreen"))
                     
                 }
                 Divider()
-                /**
-                 VVV Component Label VVV
-                */
-//                Text("Label")
-//                    .font(.system(size: 10, weight: .regular, design: .default))
-//                Text("Label")
-//                    .font(.system(size: 10, weight: .regular, design: .default))
                 ChipLabelView(tags: tags.map { $0.name})
-                //*********//
                 HStack{
                     Spacer()
                     Button(action: {
@@ -58,10 +50,10 @@ struct CanteenCard: View {
                             .background(Color("CustomOrange"))
                             .clipShape(RoundedRectangle(cornerRadius: 8))
                     }
-                }
+                }.padding(.top, 18)
             }
             .padding(.trailing, 4)
-            .frame(height: 150)
+            .frame(height: 160)
         }
         .frame(width: UIScreen.main.bounds.width * 0.875)
         .padding(8)
@@ -70,7 +62,3 @@ struct CanteenCard: View {
         .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
     }
 }
-
-//#Preview {
-//    CanteenCard(canteenName: "Kasturi", locationName:"GOP 2", image: "", tags: ["nasi","ayam","sapi"])
-//}

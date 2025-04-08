@@ -5,7 +5,7 @@
     "location": {
       "id": "loc1",
       "name": "Gedung A",
-      "images": ["gedungA_1.jpg", "gedungA_2.jpg", "gedungA_3.jpg"],
+      "images": ["test_1", "test_2", "gedungA_3.jpg"],
       "desc": ["Masuk dari pintu utama", "Belok kanan menuju lorong", "Kantin ada di sebelah kiri"],
       "long": 123.456,
       "lat": -6.789
@@ -22,19 +22,19 @@
       { "id": "t9", "name": "Egg"}
     ],
     "menu": [
-      { "id": "m1", "nama": "Nasi Goreng", "category": "Makanan", "price": 15000 },
-      { "id": "m2", "nama": "Es Teh", "category": "Minuman", "price": 5000 },
-      { "id": "m3", "nama": "Soto Ayam", "category": "Makanan", "price": 20000 },
-      { "id": "m4", "nama": "Es Jeruk", "category": "Minuman", "price": 5000 },
-      { "id": "m5", "nama": "Gado-Gado", "category": "Makanan", "price": 15000 },
-      { "id": "m6", "nama": "Chicken Katsu", "category": "Makanan", "price": 25000 },
-      { "id": "m7", "nama": "Es Ocha", "category": "Minuman", "price": 5000 },
-      { "id": "m8", "nama": "Chicken Teriyaki", "category": "Makanan", "price": 25000 },
-      { "id": "m9", "nama": "Nasi Putih", "category": "Makanan", "price": 6000 },
-      { "id": "m10", "nama": "Kentang Rebus", "category": "Makanan", "price": 8000 },
-      { "id": "m11", "nama": "Ikan Dori Asam Manis", "category": "Makanan", "price": 9000 },
-      { "id": "m12", "nama": "Beef Yakiniku", "category": "Makanan", "price": 30000 },
-      { "id": "m13", "nama": "Indomie", "category": "Makanan", "price": 8000 },
+      { "id": "m1", "nama": "Nasi Goreng", "category": "Carbs", "price": 15000 },
+      { "id": "m2", "nama": "Es Teh", "category": "Beverages", "price": 5000 },
+      { "id": "m3", "nama": "Soto Ayam", "category": "Proteins", "price": 20000 },
+      { "id": "m4", "nama": "Es Jeruk", "category": "Beverages", "price": 5000 },
+      { "id": "m5", "nama": "Gado-Gado", "category": "Carbs", "price": 15000 },
+      { "id": "m6", "nama": "Chicken Katsu", "category": "Proteins", "price": 25000 },
+      { "id": "m7", "nama": "Es Ocha", "category": "Beverages", "price": 5000 },
+      { "id": "m8", "nama": "Chicken Teriyaki", "category": "Proteins", "price": 25000 },
+      { "id": "m9", "nama": "Nasi Putih", "category": "Carbs", "price": 6000 },
+      { "id": "m10", "nama": "Kentang Rebus", "category": "Carbs", "price": 8000 },
+      { "id": "m11", "nama": "Ikan Dori Asam Manis", "category": "Proteins", "price": 9000 },
+      { "id": "m12", "nama": "Beef Yakiniku", "category": "Proteins", "price": 30000 },
+      { "id": "m13", "nama": "Indomie", "category": "Carbs", "price": 8000 },
     ]
   },
   {
@@ -49,12 +49,13 @@
       "lat": -7.890
     },
     "tags": [
-      { "id": "t17", "name": "ayam" },
-      { "id": "t18", "name": "indonesia" }
+      { "id": "t10", "name": "Chicken" },
+      { "id": "t11", "name": "Indonesia" },
+      { "id": "t12", "name": "Fruits" }
     ],
     "menu": [
-      { "id": "m10", "nama": "Ayam Geprek", "category": "Makanan", "price": 18000 },
-      { "id": "m11", "nama": "Jus Alpukat", "category": "Minuman", "price": 10000 }
+      { "id": "m10", "nama": "Ayam Geprek", "category": "Proteins", "price": 18000 },
+      { "id": "m11", "nama": "Jus Alpukat", "category": "Beverages", "price": 10000 }
     ]
   }
 ]
