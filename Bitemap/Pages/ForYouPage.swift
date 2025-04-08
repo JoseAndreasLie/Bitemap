@@ -22,28 +22,21 @@ struct ForYouPage: View {
         }
     }
     
+    var topKantins: [Kantin] {
+        let sorted = viewModel.filteredKantins.sorted { score(for: $0) > score(for: $1) }
+        return Array(sorted.prefix(6))
+    }
+    
     var body: some View {
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: columns) {
-                    let sortedKantins = viewModel.filteredKantins.sorted { kantin1, kantin2 in
-                        score(for: kantin1) > score(for: kantin2)
-                    }
-                    let topKantins = Array(sortedKantins.prefix(6))
-                    
                     ForEach(topKantins, id: \.id) { kantin in
-                        NavigationLink(destination: CanteenPage(kantin: kantin)) {
-                            ForYouCardView(
-                                name: kantin.nama,
-                                location: kantin.location.name,
-                                tags: kantin.tags.map { $0.name }
-                            )
-                        }
-                        .padding(.all, 4.0)
+                        KantinCard(kantin: kantin)
                     }
                 }
+                .padding(.horizontal)
             }
-            .padding(.all)
             .navigationTitle("For You")
         }
         .onAppear {
@@ -55,14 +48,30 @@ struct ForYouPage: View {
         if let data = UserDefaults.standard.data(forKey: "userPreferences"),
            let decoded = try? JSONDecoder().decode([UserPreferencesModel].self, from: data) {
             userPreferences = decoded
-//            print("Loaded user preferences:", userPreferences)
+            print("\n\nLoaded user preferences:", userPreferences)
             
             // Convert to Tag and inject into viewModel
             let selected = Set(decoded.map { Tag(id: $0.tag, name: $0.tag) })
             viewModel.selectedTags = selected
         } else {
-//            print("No user preferences found")
+            print("No user preferences found")
         }
+    }
+}
+
+struct KantinCard: View {
+    let kantin: Kantin
+
+    var body: some View {
+        NavigationLink(destination: CanteenPage(kantin: kantin)) {
+            ForYouCardView(
+                name: kantin.nama,
+                location: kantin.location.name,
+                tags: kantin.tags.map { $0.name },
+                image: kantin.location.images.last ?? "map"
+            )
+        }
+        .padding(4)
     }
 }
 

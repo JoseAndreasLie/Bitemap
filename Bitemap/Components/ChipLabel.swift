@@ -54,14 +54,14 @@ struct ChipLabelView: View {
     }
 }
 
-struct ChipLabelView_Previews: PreviewProvider {
-    static var previews: some View {
-        ForYouCardView(
-            name: "Kasturi",
-            location: "GOP 9",
-            tags: ["Rice", "Indonesia", "Beef", "Chicken"]
-        )
-        .previewLayout(.sizeThatFits)
-        .padding()
-    }
-}
+//struct ChipLabelView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ForYouCardView(
+//            name: "Kasturi",
+//            location: "GOP 9",
+//            tags: ["Rice", "Indonesia", "Beef", "Chicken"]
+//        )
+//        .previewLayout(.sizeThatFits)
+//        .padding()
+//    }
+//}
