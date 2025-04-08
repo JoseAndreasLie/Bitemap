@@ -49,7 +49,7 @@ struct CanteenCard: View {
                 HStack{
                     Spacer()
                     Button(action: {
-                        print("Button tapped")
+//                        print("Button tapped")
                     }) {
                         Text("See Menu")
                             .frame(width: 86, height: 27)

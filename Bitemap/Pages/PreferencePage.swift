@@ -38,7 +38,7 @@ struct PreferencePage: View {
                             UserDefaults.standard.set(encoded, forKey: "userPreferences")
                         }
                         
-                        print("Saved user preferences: \(userPreference)")
+//                        print("Saved user preferences: \(userPreference)")
                         onFinish()
                     }
                     .buttonStyle(.borderedProminent)
@@ -52,11 +52,11 @@ struct PreferencePage: View {
         .onAppear{
             loadTagsFromJSON()
         }
-        .onChange(of: selectedTags) {
-            print("\n\n")
-            print("Selected Tags:", selectedTags)
-            print("Available Tags:", tags)
-        }
+//        .onChange(of: selectedTags) {
+//            print("\n\n")
+//            print("Selected Tags:", selectedTags)
+//            print("Available Tags:", tags)
+//        }
     }
     
     private var tagGrid: some View {
