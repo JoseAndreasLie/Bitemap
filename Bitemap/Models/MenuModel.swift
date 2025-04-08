@@ -40,27 +40,3 @@ struct Menu: Codable, Identifiable, Equatable, Hashable {
 enum MenuCategory: String, Codable, CaseIterable {
     case nasi, kentang, mie, ayam, daging, ikan, indonesia, western, japanese
 }
-
-
-//struct MenuModel: Identifiable, Codable {
-//    var id = UUID()
-//    var name: String
-//    var price: Int
-//    var tags: TagsModel
-//
-//    enum CodingKeys: String, CodingKey {
-//        case name
-//        case price
-//        case tags = "Tags"
-//    }
-//}
-//
-//struct TagsModel: Codable {
-//    var cuisine: [String]
-//    var nutritional: NutritionalModel
-//}
-//
-//struct NutritionalModel: Codable {
-//    var protein: [String]
-//    var carbs: [String]
-//}

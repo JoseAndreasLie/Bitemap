@@ -43,7 +43,7 @@ struct ExplorePage: View {
                                 CanteenCard(
                                     canteenName: kantin.nama,
                                     locationName: kantin.location.name,
-                                    image: kantin.location.images[0],
+                                    image: kantin.location.images.last ?? kantin.location.images[0],
                                     tags: kantin.tags,
                                     location: kantin.location.name
                                 )
