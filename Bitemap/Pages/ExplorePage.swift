@@ -40,7 +40,8 @@ struct ExplorePage: View {
                             NavigationLink(destination: CanteenPage(kantin: kantin)) {
                                 CanteenCard(
                                     canteenName: kantin.nama,
-                                    image: kantin.location.images[0],
+                                    locationName: kantin.location.name,
+                                    image: kantin.location.images.last ?? kantin.location.images[0],
                                     tags: kantin.tags,
                                     location: kantin.location.name
                                 )
