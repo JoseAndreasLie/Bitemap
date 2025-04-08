@@ -10,6 +10,7 @@ import SwiftUI
 struct ExplorePage: View {
     @ObservedObject var viewModel = KantinViewModel()
     @State private var showFilterSheet = false
+    @State private var isShowingFilter = false
     
     var body: some View {
         NavigationStack {
@@ -56,6 +57,11 @@ struct ExplorePage: View {
             .sheet(isPresented: $showFilterSheet) {
                 FilterSheet(viewModel: viewModel)
             }
+        }
+        .sheet(isPresented: $isShowingFilter) {
+            FilterSheetView()
+                .transition(.move(edge: .bottom))
+                .animation(.spring(response: 0.5, dampingFraction: 0.8), value: isShowingFilter)
         }
     }
 }
@@ -182,21 +188,42 @@ struct FilterSheet: View {
         var body: some View {
             Button(action: action) {
                 Text(tagName)
-                    .foregroundColor(.black)
-                    .font(.system(size: 17))
-                    .padding(.horizontal, 12)
+                    .foregroundColor(isSelected ? .white : .primary)
+                    .font(.system(size: 15, weight: isSelected ? .semibold : .regular))
+                    .padding(.horizontal, 14)
                     .padding(.vertical, 8)
-                    .background(isSelected ? Color.blue : Color.white)
+                    .background(isSelected ? Color("CustomGreen") : Color.white)
                     .cornerRadius(16)
                     .overlay(
-                                Capsule()
-                                    .stroke(Color.gray, lineWidth: 0.5)
-                            )
+                        Capsule()
+                            .stroke(isSelected ? Color.clear : Color.gray.opacity(0.4), lineWidth: 1)
+                    )
+                    .shadow(color: isSelected ? Color("CustomGreen").opacity(0.3) : Color.clear, radius: 3, x: 0, y: 1)
+                    .animation(.easeInOut(duration: 0.2), value: isSelected)
             }
         }
     }
 }
 
+struct FilterSheetView: View {
+    @Environment(\.presentationMode) var presentationMode
+    @State private var animateContent = false
+    
+    var body: some View {
+        // Your existing filter sheet content
+        VStack {
+            // Header
+            // Filter content
+        }
+        .onAppear {
+            withAnimation(.easeOut(duration: 0.3).delay(0.1)) {
+                animateContent = true
+            }
+        }
+        .opacity(animateContent ? 1 : 0)
+        .offset(y: animateContent ? 0 : 20)
+    }
+}
 
 #Preview {
     ExplorePage()

@@ -14,11 +14,7 @@
       { "id": "t1", "name": "Rice" },
       { "id": "t2", "name": "Indonesia" },
       { "id": "t3", "name": "Chicken" },
-      { "id": "t4", "name": "Beef" },
-      { "id": "t5", "name": "Noodle" },
-      { "id": "t6", "name": "Potato" },
       { "id": "t7", "name": "Fish" },
-      { "id": "t8", "name": "Japanese"},
       { "id": "t9", "name": "Egg"}
     ],
     "menu": [
