@@ -98,31 +98,44 @@ struct ExplorePage: View {
     
     private var navigationContent: some View {
         NavigationStack {
-            ScrollView {
-                VStack(spacing: 0) {
-                    // Filter button inside scrollable content
-                    filterButton
-                    
-                    // Active filters inside scrollable content
-                    activeFilterChips
-                    
-                    // Canteen cards
-                    VStack {
-                        ForEach(viewModel.filteredKantins, id: \.self) { kantin in
-                            NavigationLink(destination: CanteenPage(kantin: kantin)) {
-                                CanteenCard(
-                                    canteenName: kantin.nama,
-                                    image: kantin.location.images.last ?? kantin.location.images[0],
-                                    tags: kantin.tags,
-                                    location: kantin.location.name
-                                )
-                                .padding(.vertical, 4)
+            ZStack{
+                LinearGradient(
+                    gradient: Gradient(colors: [
+                        Color(UIColor.systemBackground),
+                        Color("CustomOrange").opacity(0.3)
+                    ]),
+                    startPoint: .bottom,
+                    endPoint: .top
+                )
+                .ignoresSafeArea()
+
+                ScrollView {
+                    VStack(spacing: 0) {
+                        // Filter button inside scrollable content
+                        filterButton
+                        
+                        // Active filters inside scrollable content
+                        activeFilterChips
+                        
+                        // Canteen cards
+                        VStack {
+                            ForEach(viewModel.filteredKantins, id: \.self) { kantin in
+                                NavigationLink(destination: CanteenPage(kantin: kantin)) {
+                                    CanteenCard(
+                                        canteenName: kantin.nama,
+                                        image: kantin.location.images.last ?? kantin.location.images[0],
+                                        tags: kantin.tags,
+                                        location: kantin.location.name
+                                    )
+                                    .padding(.vertical, 4)
+                                }
+                                .buttonStyle(PlainButtonStyle())
                             }
-                            .buttonStyle(PlainButtonStyle())
                         }
+                        .padding()
                     }
-                    .padding()
                 }
+                .background(Color.clear)
             }
             .navigationTitle("Explore")
         }
