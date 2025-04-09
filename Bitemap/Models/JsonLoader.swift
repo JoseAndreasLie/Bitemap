@@ -46,4 +46,9 @@ class KantinViewModel: ObservableObject {
             return []
         }
     }
+
+    func clearAllTags() {
+        selectedTags.removeAll()
+        objectWillChange.send()
+    }
 }
