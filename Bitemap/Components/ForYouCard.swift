@@ -12,7 +12,6 @@ struct ForYouCardView: View {
     let location: String
     let tags: [String]
     let image: String
-    @State private var isTapped = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -68,25 +67,14 @@ struct ForYouCardView: View {
         .frame(width: 170)
         .background(Color(UIColor.systemBackground))
         .cornerRadius(16)
-        .shadow(color: Color.black.opacity(isTapped ? 0.15 : 0.1), 
-                radius: isTapped ? 8 : 5, 
+        .shadow(color: Color.black.opacity(0.1), 
+                radius: 5, 
                 x: 0, 
-                y: isTapped ? 4 : 2)
-        .scaleEffect(isTapped ? 0.97 : 1)
+                y: 2)
         .overlay(
             RoundedRectangle(cornerRadius: 16)
                 .stroke(Color.gray.opacity(0.2), lineWidth: 1)
         )
-        .onTapGesture {
-            withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
-                isTapped = true
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                withAnimation(.spring(response: 0.4, dampingFraction: 0.6)) {
-                    isTapped = false
-                }
-            }
-        }
     }
 }
 

@@ -32,13 +32,7 @@ struct ForYouPage: View {
             ScrollView {
                 LazyVGrid(columns: columns) {
                     ForEach(topKantins, id: \.id) { kantin in
-                        ForYouCardView(
-                            name: kantin.nama,
-                            location: kantin.location.name,
-                            tags: kantin.tags.map { $0.name },
-                            image: kantin.location.images.last ?? "map"
-                        )
-                        .padding(4)
+                        KantinCard(kantin: kantin)
                     }
                 }
                 .padding(.horizontal)
@@ -77,7 +71,6 @@ struct KantinCard: View {
                 image: kantin.location.images.last ?? "map"
             )
         }
-        .padding(4)
     }
 }
 
