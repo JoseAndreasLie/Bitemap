@@ -51,25 +51,40 @@ struct MainTabView: View {
         TabView(selection: $selectedTab) {
             ForYouPage()
                 .tabItem {
-                    Label("For You", systemImage: "list.dash")
+                    Label("For You", systemImage: selectedTab == 1 ? "heart.fill" : "heart")
                 }
                 .tag(1)
             
             ExplorePage()
                 .tabItem {
-                    Label("Explore", systemImage: "magnifyingglass")
+                    Label("Explore", systemImage: selectedTab == 2 ? "map.fill" : "map")
                 }
                 .tag(2)
         }
-        .animation(.easeInOut, value: selectedTab)
+        .tint(Color("CustomGreen")) // Use your CustomGreen for the selected tab
+        .onAppear {
+            // Set the TabBar appearance globally
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = UIColor.systemBackground
+            
+            // Explicitly disable the separator/stroke
+            appearance.shadowColor = .clear
+            appearance.shadowImage = UIImage()
+            
+            // Apply the same appearance to both standard and scrollEdge states
+            UITabBar.appearance().standardAppearance = appearance
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+        }
+        .animation(.easeInOut(duration: 0.2), value: selectedTab)
     }
 }
 
 #Preview {
     ContentView()
         .onAppear {
-        #if DEBUG
-        UserDefaults.standard.removeObject(forKey: "hasSeenPreferences")
-        #endif
+//        #if DEBUG
+//        UserDefaults.standard.removeObject(forKey: "hasSeenPreferences")
+//        #endif
     }
 }
