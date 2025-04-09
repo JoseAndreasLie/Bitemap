@@ -65,7 +65,7 @@ struct CanteenCard: View {
                 }
             }
             .padding(.trailing, 4)
-            .frame(height: 160)
+            .frame(height: 140)
         }
         .padding(12)
         .background(Color(UIColor.systemBackground))
