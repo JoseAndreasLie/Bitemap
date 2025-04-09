@@ -62,7 +62,7 @@ struct ForYouCardView: View {
                 
                 ChipLabelView(tags: tags)
             }
-            .padding(.horizontal, 8)
+            .padding([.leading, .bottom, .trailing], 8)
         }
         .frame(width: 170)
         .background(Color(UIColor.systemBackground))
