@@ -10,52 +10,70 @@ import SwiftUI
 struct ExplorePage: View {
     @ObservedObject var viewModel = KantinViewModel()
     @State private var showFilterSheet = false
+    @State private var isShowingFilter = false
     
     var body: some View {
         NavigationStack {
-            VStack {
-                Button(action: {
-                    showFilterSheet.toggle()
-                }) {
-                    HStack{
-                        Text("Choose Filter")
-                            .padding()
-                            .foregroundColor(.white)
-                            .cornerRadius(8)
-                            .font(.system(size: 20, weight: .semibold))
-                        Spacer()
-                        Image(systemName: "slider.horizontal.3")
-                            .foregroundColor(.white)
-                            .padding()
+            ZStack {
+                LinearGradient(
+                    gradient: Gradient(colors: [
+                        Color(UIColor.systemBackground),
+                        Color("CustomOrange").opacity(0.3)
+                    ]),
+                    startPoint: .bottom,
+                    endPoint: .top
+                )
+                .ignoresSafeArea()
+                
+                VStack {
+                    Button(action: {
+                        showFilterSheet.toggle()
+                    }) {
+                        HStack{
+                            Text("Choose Filter")
+                                .padding()
+                                .foregroundColor(.white)
+                                .cornerRadius(8)
+                                .font(.system(size: 20, weight: .semibold))
+                            Spacer()
+                            Image(systemName: "slider.horizontal.3")
+                                .foregroundColor(.white)
+                                .padding()
+                        }
+                        .frame(maxWidth: .infinity)
+                        .background(Color.customGreen)
+                        .cornerRadius(8)
                     }
-                    .frame(maxWidth: .infinity)
-                    .background(Color.customGreen)
-                    .cornerRadius(8)
-                }
-                .padding()
-
-                ScrollView {
-                    VStack {
-                        ForEach(viewModel.filteredKantins, id: \.self) { kantin in
-                            NavigationLink(destination: CanteenPage(kantin: kantin)) {
-                                CanteenCard(
-                                    canteenName: kantin.nama,
-                                    image: kantin.location.images.last ?? kantin.location.images[0],
-                                    tags: kantin.tags,
-                                    location: kantin.location.name
-                                )
-                                .padding(.vertical, 4)
+                    .padding()
+                    
+                    ScrollView {
+                        VStack {
+                            ForEach(viewModel.filteredKantins, id: \.self) { kantin in
+                                NavigationLink(destination: CanteenPage(kantin: kantin)) {
+                                    CanteenCard(
+                                        canteenName: kantin.nama,
+                                        image: kantin.location.images.last ?? kantin.location.images[0],
+                                        tags: kantin.tags,
+                                        location: kantin.location.name
+                                    )
+                                    .padding(.vertical, 4)
+                                }
+                                .buttonStyle(PlainButtonStyle())
                             }
-                            .buttonStyle(PlainButtonStyle())
                         }
                     }
+                    .padding()
                 }
-                .padding()
+                .navigationTitle("Explore")
+                .sheet(isPresented: $showFilterSheet) {
+                    FilterSheet(viewModel: viewModel)
+                }
             }
-            .navigationTitle("Explore")
-            .sheet(isPresented: $showFilterSheet) {
-                FilterSheet(viewModel: viewModel)
-            }
+        }
+        .sheet(isPresented: $isShowingFilter) {
+            FilterSheetView()
+                .transition(.move(edge: .bottom))
+                .animation(.spring(response: 0.5, dampingFraction: 0.8), value: isShowingFilter)
         }
     }
 }
@@ -68,6 +86,7 @@ struct FilterSheet: View {
     
     var body: some View {
         NavigationStack {
+            
             VStack(alignment: .leading) {
                 HStack(alignment: .center){
                     Spacer()
@@ -123,6 +142,7 @@ struct FilterSheet: View {
                 .padding(.horizontal)
             }
             .padding()
+            
         }
     }
     
@@ -182,21 +202,42 @@ struct FilterSheet: View {
         var body: some View {
             Button(action: action) {
                 Text(tagName)
-                    .foregroundColor(.black)
-                    .font(.system(size: 17))
-                    .padding(.horizontal, 12)
+                    .foregroundColor(isSelected ? .white : .primary)
+                    .font(.system(size: 15, weight: isSelected ? .semibold : .regular))
+                    .padding(.horizontal, 14)
                     .padding(.vertical, 8)
-                    .background(isSelected ? Color.blue : Color.white)
+                    .background(isSelected ? Color("CustomGreen") : Color.white)
                     .cornerRadius(16)
                     .overlay(
-                                Capsule()
-                                    .stroke(Color.gray, lineWidth: 0.5)
-                            )
+                        Capsule()
+                            .stroke(isSelected ? Color.clear : Color.gray.opacity(0.4), lineWidth: 1)
+                    )
+                    .shadow(color: isSelected ? Color("CustomGreen").opacity(0.3) : Color.clear, radius: 3, x: 0, y: 1)
+                    .animation(.easeInOut(duration: 0.2), value: isSelected)
             }
         }
     }
 }
 
+struct FilterSheetView: View {
+    @Environment(\.presentationMode) var presentationMode
+    @State private var animateContent = false
+    
+    var body: some View {
+        // Your existing filter sheet content
+        VStack {
+            // Header
+            // Filter content
+        }
+        .onAppear {
+            withAnimation(.easeOut(duration: 0.3).delay(0.1)) {
+                animateContent = true
+            }
+        }
+        .opacity(animateContent ? 1 : 0)
+        .offset(y: animateContent ? 0 : 20)
+    }
+}
 
 #Preview {
     ExplorePage()
