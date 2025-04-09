@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "BitemapIcon_Light.jpg",
+      "filename" : "Bitemap_Light.jpg",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -13,7 +13,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "BitemapIcon_Dark.png",
+      "filename" : "Bitemap_Dark.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
