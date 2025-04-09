@@ -15,6 +15,8 @@ struct ForYouPage: View {
     
     @State private var userPreferences: [UserPreferencesModel] = []
     @StateObject private var viewModel = KantinViewModel()
+    @State private var showingPreferences = false
+    @State private var showingConfirmation = false
     
     private func score(for kantin: Kantin) -> Int {
         kantin.tags.reduce(0) { total, tag in
@@ -29,18 +31,78 @@ struct ForYouPage: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                LazyVGrid(columns: columns) {
-                    ForEach(topKantins, id: \.id) { kantin in
-                        KantinCard(kantin: kantin)
+            ZStack {
+                // Add this subtle background gradient
+                LinearGradient(
+                    gradient: Gradient(colors: [
+                        Color(UIColor.systemBackground),
+                        Color("CustomGreen").opacity(0.3)
+                    ]),
+                    startPoint: .bottom,
+                    endPoint: .top
+                )
+                .ignoresSafeArea()
+                
+                VStack(spacing: 12) {
+                    ScrollView {
+                        LazyVGrid(columns: columns) {
+                            ForEach(topKantins, id: \.id) { kantin in
+                                KantinCard(kantin: kantin)
+                            }
+                        }
+                        .padding(.horizontal)
+                        
+                        // Reset Preferences Button moved to bottom
+                        Button(action: {
+                            showingConfirmation = true
+                        }) {
+                            HStack {
+                                Image(systemName: "arrow.triangle.2.circlepath")
+                                    .font(.system(size: 14, weight: .semibold))
+                                Text("Reset Preferences")
+                                    .font(.subheadline)
+                                    .fontWeight(.medium)
+                            }
+                            .foregroundColor(.white)
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 16)
+                            .background(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [
+                                        Color("CustomGreen"),
+                                        Color("CustomGreen").opacity(0.8)
+                                    ]),
+                                    startPoint: .leading,
+                                    endPoint: .trailing
+                                )
+                            )
+                            .cornerRadius(20)
+                            .shadow(color: Color("CustomGreen").opacity(0.3), radius: 4, x: 0, y: 2)
+                        }
+                        .padding(.vertical, 120)
                     }
                 }
-                .padding(.horizontal)
+                .padding(.horizontal, 8.0)
+                .navigationTitle("For You")
             }
-            .navigationTitle("For You")
         }
         .onAppear {
             loadUserPreferences()
+        }
+        .fullScreenCover(isPresented: $showingPreferences) {
+            PreferencePage {
+                showingPreferences = false
+                // Reload preferences when returning from the preferences page
+                loadUserPreferences()
+            }
+        }
+        .alert("Reset Preferences", isPresented: $showingConfirmation) {
+            Button("Cancel", role: .cancel) { }
+            Button("Reset", role: .destructive) {
+                showingPreferences = true
+            }
+        } message: {
+            Text("Are you sure you want to reset your food preferences?")
         }
     }
     
@@ -70,6 +132,7 @@ struct KantinCard: View {
                 tags: kantin.tags.map { $0.name },
                 image: kantin.location.images.last ?? "map"
             )
+            .padding(/*@START_MENU_TOKEN@*/.vertical, 8.0)
         }
     }
 }

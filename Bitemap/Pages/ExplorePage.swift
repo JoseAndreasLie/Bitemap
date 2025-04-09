@@ -14,48 +14,60 @@ struct ExplorePage: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                Button(action: {
-                    showFilterSheet.toggle()
-                }) {
-                    HStack{
-                        Text("Choose Filter")
-                            .padding()
-                            .foregroundColor(.white)
-                            .cornerRadius(8)
-                            .font(.system(size: 20, weight: .semibold))
-                        Spacer()
-                        Image(systemName: "slider.horizontal.3")
-                            .foregroundColor(.white)
-                            .padding()
+            ZStack {
+                LinearGradient(
+                    gradient: Gradient(colors: [
+                        Color(UIColor.systemBackground),
+                        Color("CustomOrange").opacity(0.3)
+                    ]),
+                    startPoint: .bottom,
+                    endPoint: .top
+                )
+                .ignoresSafeArea()
+                
+                VStack {
+                    Button(action: {
+                        showFilterSheet.toggle()
+                    }) {
+                        HStack{
+                            Text("Choose Filter")
+                                .padding()
+                                .foregroundColor(.white)
+                                .cornerRadius(8)
+                                .font(.system(size: 20, weight: .semibold))
+                            Spacer()
+                            Image(systemName: "slider.horizontal.3")
+                                .foregroundColor(.white)
+                                .padding()
+                        }
+                        .frame(maxWidth: .infinity)
+                        .background(Color.customGreen)
+                        .cornerRadius(8)
                     }
-                    .frame(maxWidth: .infinity)
-                    .background(Color.customGreen)
-                    .cornerRadius(8)
-                }
-                .padding()
-
-                ScrollView {
-                    VStack {
-                        ForEach(viewModel.filteredKantins, id: \.self) { kantin in
-                            NavigationLink(destination: CanteenPage(kantin: kantin)) {
-                                CanteenCard(
-                                    canteenName: kantin.nama,
-                                    image: kantin.location.images.last ?? kantin.location.images[0],
-                                    tags: kantin.tags,
-                                    location: kantin.location.name
-                                )
-                                .padding(.vertical, 4)
+                    .padding()
+                    
+                    ScrollView {
+                        VStack {
+                            ForEach(viewModel.filteredKantins, id: \.self) { kantin in
+                                NavigationLink(destination: CanteenPage(kantin: kantin)) {
+                                    CanteenCard(
+                                        canteenName: kantin.nama,
+                                        image: kantin.location.images.last ?? kantin.location.images[0],
+                                        tags: kantin.tags,
+                                        location: kantin.location.name
+                                    )
+                                    .padding(.vertical, 4)
+                                }
+                                .buttonStyle(PlainButtonStyle())
                             }
-                            .buttonStyle(PlainButtonStyle())
                         }
                     }
+                    .padding()
                 }
-                .padding()
-            }
-            .navigationTitle("Explore")
-            .sheet(isPresented: $showFilterSheet) {
-                FilterSheet(viewModel: viewModel)
+                .navigationTitle("Explore")
+                .sheet(isPresented: $showFilterSheet) {
+                    FilterSheet(viewModel: viewModel)
+                }
             }
         }
         .sheet(isPresented: $isShowingFilter) {
@@ -74,6 +86,7 @@ struct FilterSheet: View {
     
     var body: some View {
         NavigationStack {
+            
             VStack(alignment: .leading) {
                 HStack(alignment: .center){
                     Spacer()
@@ -129,6 +142,7 @@ struct FilterSheet: View {
                 .padding(.horizontal)
             }
             .padding()
+            
         }
     }
     
