@@ -13,7 +13,7 @@ struct CanteenMapView: View {
 
     var body: some View {
         VStack {
-            Text("Cara Menuju \(kantin.nama)")
+            Text("Direction to \(kantin.nama)")
                 .font(.headline)
                 .padding()
 

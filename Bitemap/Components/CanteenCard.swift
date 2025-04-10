@@ -13,49 +13,67 @@ struct CanteenCard: View {
     @State var image: String
     @State var tags: [Tag]
     @State var location: String
+    
     var body: some View {
-        HStack(spacing: 12) {
+        HStack(spacing: 16) {
             Image(image)
                 .resizable()
-                .aspectRatio(contentMode: .fit)
-                .foregroundColor(.black)
-                .padding(.all, 8.0)
-                .frame(width: 106, height: 106)
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 110, height: 110)
                 .background(Color.gray.opacity(0.2))
-                .clipShape(RoundedRectangle(cornerRadius: 8))
-            VStack(alignment: .leading, spacing: 7){
-                HStack{
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .shadow(color: Color.black.opacity(0.1), radius: 3, x: 0, y: 2)
+            
+            VStack(alignment: .leading, spacing: 8) {
+                HStack {
                     Text(canteenName)
-                        .font(.system(size: 17, weight: .semibold, design: .default))
-                    Spacer()
-                    Image(systemName: "mappin.and.ellipse")
-                        .foregroundColor(.green)
-                    Text(location)
-                        .font(.system(size: 14, weight: .bold, design: .default))
-                        .foregroundColor(Color("CustomGreen"))
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundColor(.primary)
                     
+                    Spacer()
+                    
+                    HStack(spacing: 4) {
+                        Image(systemName: "mappin.circle.fill")
+                            .foregroundColor(Color("CustomGreen"))
+                            .font(.system(size: 14))
+                        
+                        Text(location)
+                            .font(.system(size: 13, weight: .medium))
+                            .foregroundColor(Color("CustomGreen"))
+                    }
                 }
+                
                 Divider()
-                ChipLabelView(tags: tags.map { $0.name})
-                HStack{
+                    .background(Color.gray.opacity(0.3))
+                
+                ChipLabelView(tags: tags.map { $0.name })
+                
+                Spacer()
+                
+                HStack {
                     Spacer()
                     HStack {
                         Text("See Menu")
-                            .frame(width: 86, height: 27)
-                            .font(.system(size: 11, weight: .semibold, design: .default))
-                            .foregroundColor(.white)
+                            .font(.system(size: 13, weight: .semibold))
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 8)
                             .background(Color("CustomOrange"))
+                            .foregroundColor(.white)
                             .clipShape(RoundedRectangle(cornerRadius: 8))
+                            .shadow(color: Color("CustomOrange").opacity(0.3), radius: 4, x: 0, y: 2)
                     }
-                }.padding(.top, 18)
+                }
             }
             .padding(.trailing, 4)
-            .frame(height: 160)
+            .frame(height: 140)
         }
-        .frame(width: UIScreen.main.bounds.width * 0.875)
-        .padding(8)
-        .background(Color.white)
-        .clipShape(RoundedRectangle(cornerRadius: 8))
-        .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
+        .padding(12)
+        .background(Color(UIColor.systemBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .shadow(color: Color.black.opacity(0.07), radius: 8, x: 0, y: 4)
+        .overlay(
+            RoundedRectangle(cornerRadius: 16)
+                .stroke(Color.gray.opacity(0.1), lineWidth: 1)
+        )
     }
 }
