@@ -161,7 +161,7 @@
         "Masuk ke arah lift dan tangga lalu turun",
         "Setelah turun ke basement, belok ke kiri",
         "Lurus terus hingga menemukan tanda Green Eatery",
-        "Kantin Ahza ada di sebelah kanan setelah pintu masuk."
+        "Kantin AyJoost ada di sebelah kanan setelah pintu masuk."
       ],
       "long": 120.567,
       "lat": -7.89
@@ -235,7 +235,7 @@
         "Masuk ke arah lift dan tangga lalu turun",
         "Setelah turun ke basement, belok ke kiri",
         "Lurus terus hingga menemukan tanda Green Eatery",
-        "Kantin Kedai 2 Nyonya ada di sebelah kiri setelah pintu masuk"
+        "Kantin Barger Q. ada di sebelah kiri setelah pintu masuk"
       ],
       "long": 121.0,
       "lat": -6.7
@@ -262,37 +262,37 @@
       {
         "id": "m14",
         "nama": "Burger Keju",
-        "category": "Makanan",
+        "category": "Proteins",
         "price": 22000
       },
       {
         "id": "m15",
         "nama": "Kentang Goreng",
-        "category": "Makanan",
+        "category": "Carbs",
         "price": 12000
       },
       {
         "id": "m16",
         "nama": "Cola",
-        "category": "Minuman",
+        "category": "Beverages",
         "price": 7000
       },
       {
         "id": "m17",
         "nama": "Hotdog Sosis",
-        "category": "Makanan",
+        "category": "Protein",
         "price": 20000
       },
       {
         "id": "m18",
         "nama": "Mozzarella Stick",
-        "category": "Makanan",
+        "category": "Carbs",
         "price": 17000
       },
       {
         "id": "m19",
         "nama": "Iced Lemon Tea",
-        "category": "Minuman",
+        "category": "Beverages",
         "price": 8000
       }
     ]
@@ -315,7 +315,7 @@
         "Masuk ke arah lift dan tangga lalu turun",
         "Setelah turun ke basement, belok ke kiri",
         "Lurus terus hingga menemukan tanda Green Eatery",
-        "Kantin Dapoer Cowek ada di sebelah kanan setelah pintu masuk."
+        "Kantin Kacoan ada di sebelah kanan setelah pintu masuk."
       ],
       "long": 122.345,
       "lat": -6.8
@@ -342,45 +342,45 @@
       {
         "id": "m17",
         "nama": "Bakso Urat",
-        "category": "Makanan",
+        "category": "Proteins",
         "price": 15000
       },
       {
         "id": "m18",
         "nama": "Mie Ayam",
-        "category": "Makanan",
+        "category": "Carbs",
         "price": 13000
       },
       {
         "id": "m19",
         "nama": "Sate Ayam",
-        "category": "Makanan",
+        "category": "Proteins",
         "price": 18000
       },
       {
         "id": "m20",
         "nama": "Teh Botol",
-        "category": "Minuman",
+        "category": "Beverages",
         "price": 6000
       },
       {
         "id": "m21",
         "nama": "Mie Goreng Jawa",
-        "category": "Makanan",
+        "category": "Carbs",
         "price": 14000
       },
       {
         "id": "m22",
         "nama": "Tahu Bakso",
-        "category": "Makanan",
+        "category": "Proteins",
         "price": 10000
       },
       {
         "id": "m23",
         "nama": "Es Cincau",
-        "category": "Minuman",
+        "category": "Beverages",
         "price": 7000
-      }
+      },
     ]
   },
   {
@@ -388,7 +388,7 @@
     "nama": "K4Mart",
     "location": {
       "id": "loc5",
-      "name": "GOP 1",
+      "name": "GOP 9",
       "images": [
         "GOP9_1",
         "GOP9_2",
@@ -401,7 +401,7 @@
         "Masuk ke arah lift dan tangga lalu turun",
         "Setelah turun ke basement, belok ke kiri",
         "Lurus terus hingga menemukan tanda Green Eatery",
-        "Kantin Mustafa ada di sebelah kanan ujung setelah pintu masuk."
+        "Kantin K4Mart ada di sebelah kanan ujung setelah pintu masuk."
       ],
       "long": 123.46,
       "lat": -6.785
@@ -428,37 +428,37 @@
       {
         "id": "m21",
         "nama": "Bibimbap",
-        "category": "Makanan",
+        "category": "Carbs",
         "price": 27000
       },
       {
         "id": "m22",
         "nama": "Kimchi",
-        "category": "Makanan",
+        "category": "Veggies",
         "price": 10000
       },
       {
         "id": "m23",
         "nama": "Susu Pisang",
-        "category": "Minuman",
+        "category": "Beverages",
         "price": 8000
       },
       {
         "id": "m24",
         "nama": "Kimbap",
-        "category": "Makanan",
+        "category": "Carbs",
         "price": 15000
       },
       {
         "id": "m25",
         "nama": "Ramyeon",
-        "category": "Makanan",
+        "category": "Carbs",
         "price": 20000
       },
       {
         "id": "m26",
         "nama": "Teh Ginseng",
-        "category": "Minuman",
+        "category": "Beverages",
         "price": 10000
       }
     ]
@@ -468,14 +468,20 @@
     "nama": "Karens Diner",
     "location": {
       "id": "loc6",
-      "name": "GOP 6",
+      "name": "GOP 9",
       "images": [
-        "gedungF_1.jpg"
+          "GOP9_1",
+          "GOP9_2",
+          "GOP9_3",
+          "GOP9_4",
+          "KarensDiner"
       ],
       "desc": [
-        "Masuk dari lobby samping",
-        "Naik lift ke lantai 3",
-        "Kantin di depan ruang meeting"
+          "Dari arah lobby",
+          "Masuk ke arah lift dan tangga lalu turun",
+          "Setelah turun ke basement, belok ke kiri",
+          "Lurus terus hingga menemukan tanda Green Eatery",
+          "Kantin Karens Diner ada di sebelah kanan ujung setelah pintu masuk."
       ],
       "long": 121.005,
       "lat": -6.705
@@ -502,37 +508,37 @@
       {
         "id": "m24",
         "nama": "Waffle Coklat",
-        "category": "Makanan",
+        "category": "Bread",
         "price": 15000
       },
       {
         "id": "m25",
         "nama": "Jus Mangga",
-        "category": "Minuman",
+        "category": "Beverages",
         "price": 9000
       },
       {
         "id": "m26",
         "nama": "Jus Semangka",
-        "category": "Minuman",
+        "category": "Beverages",
         "price": 9000
       },
       {
         "id": "m27",
         "nama": "Roti Panggang Telur",
-        "category": "Makanan",
+        "category": "Carbs",
         "price": 12000
       },
       {
         "id": "m28",
         "nama": "Croissant",
-        "category": "Makanan",
+        "category": "Bread",
         "price": 15000
       },
       {
         "id": "m29",
         "nama": "Yogurt Buah",
-        "category": "Makanan",
+        "category": "Fruits",
         "price": 10000
       }
     ]
@@ -544,12 +550,18 @@
       "id": "loc7",
       "name": "GOP 9",
       "images": [
-        "gedungG_1.jpg"
+          "GOP9_1",
+          "GOP9_2",
+          "GOP9_3",
+          "GOP9_4",
+          "Brot"
       ],
       "desc": [
-        "Lewat tangga darurat",
-        "Masuk pintu kiri",
-        "Dekat ruang istirahat dosen"
+          "Dari arah lobby",
+          "Masuk ke arah lift dan tangga lalu turun",
+          "Setelah turun ke basement, belok ke kiri",
+          "Lurus terus hingga menemukan tanda Green Eatery",
+          "Kantin Brot. ada di sebelah kanan ujung setelah pintu masuk."
       ],
       "long": 122.35,
       "lat": -6.805
@@ -576,37 +588,37 @@
       {
         "id": "m27",
         "nama": "Salad Buah",
-        "category": "Makanan",
+        "category": "Fruits",
         "price": 12000
       },
       {
         "id": "m28",
         "nama": "Smoothie Alpukat",
-        "category": "Minuman",
+        "category": "Beverages",
         "price": 11000
       },
       {
         "id": "m29",
         "nama": "Roti Gandum",
-        "category": "Makanan",
+        "category": "Bread",
         "price": 7000
       },
       {
         "id": "m30",
         "nama": "Roti Bakar Coklat",
-        "category": "Makanan",
+        "category": "Bread",
         "price": 10000
       },
       {
         "id": "m31",
         "nama": "Smoothie Berry",
-        "category": "Minuman",
+        "category": "Beverages",
         "price": 11000
       },
       {
         "id": "m32",
         "nama": "Salad Sayur",
-        "category": "Makanan",
+        "category": "Veggies",
         "price": 13000
       }
     ]
@@ -616,13 +628,20 @@
     "nama": "Wartel",
     "location": {
       "id": "loc8",
-      "name": "GOP 2",
+      "name": "GOP 9",
       "images": [
-        "gedungH_1.jpg"
+          "GOP9_1",
+          "GOP9_2",
+          "GOP9_3",
+          "GOP9_4",
+          "Wartel"
       ],
       "desc": [
-        "Dekat area parkir motor",
-        "Masuk dari pintu barat"
+          "Dari arah lobby",
+          "Masuk ke arah lift dan tangga lalu turun",
+          "Setelah turun ke basement, belok ke kiri",
+          "Lurus terus hingga menemukan tanda Green Eatery",
+          "Kantin Wartel ada di sebelah kanan ujung setelah pintu masuk."
       ],
       "long": 124.123,
       "lat": -6.8
@@ -649,53 +668,66 @@
       {
         "id": "m30",
         "nama": "Chicken Curry",
-        "category": "Makanan",
+        "category": "Proteins",
         "price": 22000
       },
       {
         "id": "m31",
         "nama": "Telur Dadar",
-        "category": "Makanan",
+        "category": "Proteins",
         "price": 8000
       },
       {
         "id": "m32",
         "nama": "Air Mineral",
-        "category": "Minuman",
+        "category": "Beverages",
         "price": 4000
       },
       {
         "id": "m33",
         "nama": "Nasi Ayam Serundeng",
-        "category": "Makanan",
+        "category": "Carbs",
         "price": 17000
       },
       {
         "id": "m34",
         "nama": "Telur Ceplok Balado",
-        "category": "Makanan",
+        "category": "Proteins",
         "price": 9000
       },
       {
         "id": "m35",
         "nama": "Teh Tawar",
-        "category": "Minuman",
+        "category": "Beverages",
         "price": 3000
       }
     ]
   },
   {
     "id": "9",
-    "nama": "Bola Seafood",
+    "nama": "Dapur Kencana",
     "location": {
       "id": "loc9",
-      "name": "GOP 3",
+      "name": "GOP 1",
       "images": [
-        "gedungI_1.jpg"
+        "GOP1_1",
+        "GOP1_2",
+        "GOP1_4",
+        "GOP1_5",
+        "GOP1_6",
+        "GOP1_7",
+        "GOP1_8",
+        "DapurKencana"
       ],
       "desc": [
         "Masuk lewat lobi utama",
-        "Di seberang lift"
+        "Dari arah sini lurus terus",
+        "Di sisi kiri akan ada pintu masuk South, masuk ke situ",
+        "Dari pintu masuk, lurus ke arah tangga turun",
+        "Setelah turun, keluar melalui pintu",
+        "Belok kanan dan lurus terus",
+        "Akan ada pintu masuk menuju kantinnya",
+        "Anda sudah sampai di kantin Dapur Kencana"
       ],
       "long": 125.321,
       "lat": -6.795
@@ -722,37 +754,37 @@
       {
         "id": "m33",
         "nama": "Ikan Bakar",
-        "category": "Makanan",
+        "category": "Proteins",
         "price": 25000
       },
       {
         "id": "m34",
         "nama": "Mie Goreng",
-        "category": "Makanan",
+        "category": "Carbs",
         "price": 13000
       },
       {
         "id": "m35",
         "nama": "Teh Manis",
-        "category": "Minuman",
+        "category": "Beverages",
         "price": 5000
       },
       {
         "id": "m36",
         "nama": "Cumi Goreng Tepung",
-        "category": "Makanan",
+        "category": "Proteins",
         "price": 20000
       },
       {
         "id": "m37",
         "nama": "Kwetiau Seafood",
-        "category": "Makanan",
+        "category": "Carbs",
         "price": 22000
       },
       {
         "id": "m38",
         "nama": "Es Teh Lemon",
-        "category": "Minuman",
+        "category": "Beverages",
         "price": 6000
       }
     ]
@@ -762,14 +794,20 @@
     "nama": "Sehat Sehat",
     "location": {
       "id": "loc10",
-      "name": "GOP 4",
+      "name": "GOP 9",
       "images": [
-        "gedungJ_1.jpg",
-        "gedungJ_2.jpg"
+          "GOP9_1",
+          "GOP9_2",
+          "GOP9_3",
+          "GOP9_4",
+          "SehatSehat"
       ],
       "desc": [
-        "Lewat jalur selatan",
-        "Dekat ruang pertemuan"
+          "Dari arah lobby",
+          "Masuk ke arah lift dan tangga lalu turun",
+          "Setelah turun ke basement, belok ke kiri",
+          "Lurus terus hingga menemukan tanda Green Eatery",
+          "Kantin Sehat Sehat ada di sebelah kanan ujung setelah pintu masuk."
       ],
       "long": 126.789,
       "lat": -6.81
@@ -796,37 +834,37 @@
       {
         "id": "m36",
         "nama": "Granola Bar",
-        "category": "Makanan",
+        "category": "Snack",
         "price": 10000
       },
       {
         "id": "m37",
         "nama": "Jus Jeruk",
-        "category": "Minuman",
+        "category": "Beverages",
         "price": 9000
       },
       {
         "id": "m38",
         "nama": "Pudding Chia",
-        "category": "Makanan",
+        "category": "Dessert",
         "price": 12000
       },
       {
         "id": "m39",
         "nama": "Buah Potong",
-        "category": "Makanan",
+        "category": "Fruits",
         "price": 7000
       },
       {
         "id": "m40",
         "nama": "Jus Apel",
-        "category": "Minuman",
+        "category": "Beverages",
         "price": 9000
       },
       {
         "id": "m41",
         "nama": "Overnight Oats",
-        "category": "Makanan",
+        "category": "Snack",
         "price": 11000
       }
     ]
