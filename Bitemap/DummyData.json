@@ -13,11 +13,11 @@
         "Kasturi"
       ],
       "desc": [
-        "Dari arah lobby",
-        "Masuk ke arah lift dan tangga lalu turun",
-        "Setelah turun ke basement, belok ke kiri",
-        "Lurus terus hingga menemukan tanda Green Eatery",
-        "Kasturi ada di ujung sebelah kiri dari pintu masuk"
+        "From the lobby area,",
+        "Enter towards the elevator and stairs, then go down,",
+        "After going down to the basement, turn left,",
+        "Walk straight until you see the Green Eatery sign,",
+        "Kasturi is at the far left end from the entrance."
       ],
       "long": 123.456,
       "lat": -6.789
@@ -157,11 +157,11 @@
         "Ahza"
       ],
       "desc": [
-        "Dari arah lobby",
-        "Masuk ke arah lift dan tangga lalu turun",
-        "Setelah turun ke basement, belok ke kiri",
-        "Lurus terus hingga menemukan tanda Green Eatery",
-        "Kantin AyJoost ada di sebelah kanan setelah pintu masuk."
+        "From the lobby area,",
+        "Enter towards the elevator and stairs, then go down,",
+        "After going down to the basement, turn left,",
+        "Walk straight until you see the Green Eatery sign,",
+        "You'll find AyJoost Canteen on the right after you enter."
       ],
       "long": 120.567,
       "lat": -7.89
@@ -231,11 +231,11 @@
         "Kedai2Nyonya"
       ],
       "desc": [
-        "Dari arah lobby",
-        "Masuk ke arah lift dan tangga lalu turun",
-        "Setelah turun ke basement, belok ke kiri",
-        "Lurus terus hingga menemukan tanda Green Eatery",
-        "Kantin Barger Q. ada di sebelah kiri setelah pintu masuk"
+        "From the lobby area,",
+        "Enter towards the elevator and stairs, then go down,",
+        "After going down to the basement, turn left,",
+        "Walk straight until you see the Green Eatery sign,",
+        "You'll find Barger Q. Canteen on the left after you enter."
       ],
       "long": 121.0,
       "lat": -6.7
@@ -311,11 +311,11 @@
         "DapoerCowek"
       ],
       "desc": [
-        "Dari arah lobby",
-        "Masuk ke arah lift dan tangga lalu turun",
-        "Setelah turun ke basement, belok ke kiri",
-        "Lurus terus hingga menemukan tanda Green Eatery",
-        "Kantin Kacoan ada di sebelah kanan setelah pintu masuk."
+        "From the lobby area,",
+        "Enter towards the elevator and stairs, then go down,",
+        "After going down to the basement, turn left,",
+        "Walk straight until you see the Green Eatery sign,",
+        "You'll find Kacoan Canteen on the right after you enter."
       ],
       "long": 122.345,
       "lat": -6.8
@@ -397,11 +397,11 @@
         "Mustafa"
       ],
       "desc": [
-        "Dari arah lobby",
-        "Masuk ke arah lift dan tangga lalu turun",
-        "Setelah turun ke basement, belok ke kiri",
-        "Lurus terus hingga menemukan tanda Green Eatery",
-        "Kantin K4Mart ada di sebelah kanan ujung setelah pintu masuk."
+        "From the lobby area,",
+        "Enter towards the elevator and stairs, then go down,",
+        "After going down to the basement, turn left,",
+        "Walk straight until you see the Green Eatery sign,",
+        "You'll find K4Mart Canteen at the far right after you enter."
       ],
       "long": 123.46,
       "lat": -6.785
@@ -477,11 +477,11 @@
           "KarensDiner"
       ],
       "desc": [
-          "Dari arah lobby",
-          "Masuk ke arah lift dan tangga lalu turun",
-          "Setelah turun ke basement, belok ke kiri",
-          "Lurus terus hingga menemukan tanda Green Eatery",
-          "Kantin Karens Diner ada di sebelah kanan ujung setelah pintu masuk."
+          "From the lobby area,",
+          "Enter towards the elevator and stairs, then go down,",
+          "After going down to the basement, turn left,",
+          "Walk straight until you see the Green Eatery sign,",
+          "You'll find Karen's Diner Canteen at the far right after you enter."
       ],
       "long": 121.005,
       "lat": -6.705
@@ -557,11 +557,11 @@
           "Brot"
       ],
       "desc": [
-          "Dari arah lobby",
-          "Masuk ke arah lift dan tangga lalu turun",
-          "Setelah turun ke basement, belok ke kiri",
-          "Lurus terus hingga menemukan tanda Green Eatery",
-          "Kantin Brot. ada di sebelah kanan ujung setelah pintu masuk."
+          "From the lobby area,",
+          "Enter towards the elevator and stairs, then go down,",
+          "After going down to the basement, turn left,",
+          "Walk straight until you see the Green Eatery sign,",
+          "You'll find Brot. Canteen at the far right after you enter."
       ],
       "long": 122.35,
       "lat": -6.805
@@ -637,11 +637,11 @@
           "Wartel"
       ],
       "desc": [
-          "Dari arah lobby",
-          "Masuk ke arah lift dan tangga lalu turun",
-          "Setelah turun ke basement, belok ke kiri",
-          "Lurus terus hingga menemukan tanda Green Eatery",
-          "Kantin Wartel ada di sebelah kanan ujung setelah pintu masuk."
+          "From the lobby area,",
+          "Enter towards the elevator and stairs, then go down,",
+          "After going down to the basement, turn left,",
+          "Walk straight until you see the Green Eatery sign,",
+          "You'll find Wartel Canteen at the far right after you enter."
       ],
       "long": 124.123,
       "lat": -6.8
@@ -720,14 +720,14 @@
         "DapurKencana"
       ],
       "desc": [
-        "Masuk lewat lobi utama",
-        "Dari arah sini lurus terus",
-        "Di sisi kiri akan ada pintu masuk South, masuk ke situ",
-        "Dari pintu masuk, lurus ke arah tangga turun",
-        "Setelah turun, keluar melalui pintu",
-        "Belok kanan dan lurus terus",
-        "Akan ada pintu masuk menuju kantinnya",
-        "Anda sudah sampai di kantin Dapur Kencana"
+        "Enter through the main lobby",
+        "Go straight from here",
+        "On the left side, you'll see the South entrance, go in there",
+        "From the entrance, walk straight towards the stairs going down",
+        "After going down, exit through the door",
+        "Turn right and keep going straight",
+        "There will be an entrance to the canteen",
+        "You have arrived at Dapur Kencana Canteen"
       ],
       "long": 125.321,
       "lat": -6.795
@@ -803,11 +803,11 @@
           "SehatSehat"
       ],
       "desc": [
-          "Dari arah lobby",
-          "Masuk ke arah lift dan tangga lalu turun",
-          "Setelah turun ke basement, belok ke kiri",
-          "Lurus terus hingga menemukan tanda Green Eatery",
-          "Kantin Sehat Sehat ada di sebelah kanan ujung setelah pintu masuk."
+          "From the lobby area,",
+          "Enter towards the elevator and stairs, then go down,",
+          "After going down to the basement, turn left,",
+          "Walk straight until you see the Green Eatery sign,",
+          "Sehat Sehat Canteen is located at the far right after the entrance."
       ],
       "long": 126.789,
       "lat": -6.81
