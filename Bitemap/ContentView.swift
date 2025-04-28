@@ -78,6 +78,7 @@ struct MainTabView: View {
         }
         .animation(.easeInOut(duration: 0.2), value: selectedTab)
     }
+    // eek
 }
 
 #Preview {
