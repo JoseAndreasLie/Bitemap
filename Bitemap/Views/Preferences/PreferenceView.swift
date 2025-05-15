@@ -5,15 +5,14 @@
 //  Created by Jose Andreas Lie on 28/03/25.
 //
 
+// PreferencePage.swift - Updated version
+
 import SwiftUI
 
-struct PreferencePage: View {
+struct PreferenceView: View {
     var onFinish: () -> Void
-    
-    @State private var userPreference: [UserPreferencesModel] = []
-    @State private var tags: [String] = []
-    @State private var selectedTags: [String] = []
-    
+    @StateObject private var viewModel = PreferenceViewModel()
+    //
     var body: some View {
         NavigationView {
             ZStack {
@@ -40,18 +39,10 @@ struct PreferencePage: View {
                         Spacer()
                         
                         Button("Save Preferences") {
-                            userPreference = selectedTags.map { tag in
-                                UserPreferencesModel(tag: tag, count: 2)
-                            }
-                            
-                            // Encode and store
-                            if let encoded = try? JSONEncoder().encode(userPreference) {
-                                UserDefaults.standard.set(encoded, forKey: "userPreferences")
-                            }
-                            
-                            // onFinish()
-                            withAnimation {
-                                onFinish()
+                            viewModel.savePreferences {
+                                withAnimation {
+                                    onFinish()
+                                }
                             }
                         }
                         .font(.headline)
@@ -72,63 +63,38 @@ struct PreferencePage: View {
                         .cornerRadius(14)
                         .shadow(color: Color("CustomOrange").opacity(0.3), radius: 8, x: 0, y: 4)
                         .padding(.vertical, 16)
-                        .disabled(selectedTags.isEmpty) // Follow HIG - disable when no selection
-                        .opacity(selectedTags.isEmpty ? 0.7 : 1.0) // Visual feedback for disabled state
+                        .disabled(viewModel.selectedTags.isEmpty)
+                        .opacity(viewModel.selectedTags.isEmpty ? 0.7 : 1.0)
                     }
                     .padding(4)
                 }
-                .padding(/*@START_MENU_TOKEN@*/.all, 4.0/*@END_MENU_TOKEN@*/)
+                .padding(.all, 4.0)
                 .navigationTitle("Preferences")
             }
         }
-        .onAppear{
-            loadTagsFromJSON()
-        }
-//        .onChange(of: selectedTags) {
-//            print("\n\n")
-//            print("Selected Tags:", selectedTags)
-//            print("Available Tags:", tags)
-//        }
     }
     
     private var tagGrid: some View {
         let columns = [GridItem(.adaptive(minimum: 100), spacing: 10)]
         
         return LazyVGrid(columns: columns, spacing: 10) {
-            ForEach(tags, id: \.self) { tag in
+            ForEach(viewModel.tags, id: \.self) { tag in
                 PreferenceButton(
-                    isSelected: selectedTags.contains(tag),
+                    isSelected: viewModel.selectedTags.contains(tag),
                     title: tag,
                     action: {
-                        toggleTag(tag)
+                        viewModel.toggleTag(tag)
                     }
                 )
             }
         }
     }
-    
-    private func toggleTag(_ tag: String) {
-        if let index = selectedTags.firstIndex(of: tag) {
-            selectedTags.remove(at: index)
-        } else {
-            selectedTags.append(tag)
-        }
-    }
-    
-    
-    private func loadTagsFromJSON() {
-        if let url = Bundle.main.url(forResource: "DummyData", withExtension: "json"),
-           let data = try? Data(contentsOf: url),
-           let kantins = try? JSONDecoder().decode([Kantin].self, from: data) {
-            
-            let allTags = kantins.flatMap { $0.tags.map { $0.name } }
-            tags = Array(Set(allTags)).sorted()
-        } else {
-            print("Failed to load or parse kantin_data.json")
-        }
-    }
 }
 
 #Preview {
-    PreferencePage(onFinish: {})
+    PreferenceView(
+        onFinish: {
+            print("Done bang")
+        }
+    )
 }

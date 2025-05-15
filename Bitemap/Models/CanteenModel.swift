@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Kantin: Codable, Identifiable, Hashable {
+struct Canteen: Codable, Identifiable, Hashable {
     let id: String
     let nama: String
     let location: Location
