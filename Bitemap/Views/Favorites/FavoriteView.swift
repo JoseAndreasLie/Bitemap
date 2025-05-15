@@ -61,20 +61,20 @@ struct FavoriteView: View {
                 }
             }
             .navigationTitle("Favorites")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    if !viewModel.favoriteCanteens.isEmpty {
-                        Button(action: {
-                            withAnimation {
-                                viewModel.sortFavorites()
-                            }
-                        }) {
-                            Image(systemName: "arrow.up.arrow.down")
-                                .foregroundColor(Color("CustomGreen"))
-                        }
-                    }
-                }
-            }
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    if !viewModel.favoriteCanteens.isEmpty {
+//                        Button(action: {
+//                            withAnimation {
+//                                viewModel.sortFavorites()
+//                            }
+//                        }) {
+//                            Image(systemName: "arrow.up.arrow.down")
+//                                .foregroundColor(Color("CustomGreen"))
+//                        }
+//                    }
+//                }
+//            }
             .onAppear {
                 viewModel.loadCanteens()
                 

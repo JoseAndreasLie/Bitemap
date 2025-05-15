@@ -71,8 +71,8 @@ final class FavoriteViewModel: ObservableObject {
         loadCanteens()
     }
     
-    func sortFavorites() {
-        // Toggle between alphabetical and location sorting
-        sortOrder = sortOrder == .alphabetical ? .location : .alphabetical
-    }
+//    func sortFavorites() {
+//        // Toggle between alphabetical and location sorting
+//        sortOrder = sortOrder == .alphabetical ? .location : .alphabetical
+//    }
 }
