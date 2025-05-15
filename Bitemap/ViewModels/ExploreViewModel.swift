@@ -7,19 +7,20 @@ final class ExploreViewModel: ObservableObject {
     @Published var selectedTags: Set<Tag> = []
     @Published var showFilterSheet: Bool = false
     
-    // This is correct and efficient
     var filteredCanteens: [Canteen] {
         if selectedTags.isEmpty {
             return canteens
         } else {
             return canteens.filter { canteen in
-                canteen.tags.contains { tag in
-                    selectedTags.contains(tag)
+                // Check if any of the canteen's tags match any of the selected tags by name
+                canteen.tags.contains { canteenTag in
+                    selectedTags.contains { selectedTag in
+                        selectedTag.name == canteenTag.name
+                    }
                 }
             }
         }
     }
-    
     init() {
         loadCanteens()
     }

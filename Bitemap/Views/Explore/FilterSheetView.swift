@@ -59,6 +59,9 @@ struct FilterSheetView: View {
 
     private var applyButton: some View {
         Button(action: {
+            // Force UI update by explicitly saving selected tags
+            let selectedTags = viewModel.selectedTags
+            viewModel.selectedTags = selectedTags
             dismiss()
         }) {
             Text("Apply Filter")
@@ -71,7 +74,7 @@ struct FilterSheetView: View {
         }
         .padding(.horizontal)
     }
-
+    
     @ViewBuilder
     private func tagChips(tags: [String], geometry: GeometryProxy) -> some View {
         let rows = generateRows(for: tags, geometry: geometry)
