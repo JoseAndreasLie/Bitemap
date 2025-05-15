@@ -11,4 +11,5 @@ struct UserPreferencesModel: Identifiable, Codable{
     var id = UUID()
     var tag: String
     var count: Int
+    var favoriteCateens: [String]
 }

@@ -11,6 +11,6 @@ struct Kantin: Codable, Identifiable, Hashable {
     let id: String
     let nama: String
     let location: Location
-    let tags: [Tag] // Menggunakan array, bukan Set
+    let tags: [Tag]
     let menu: [Menu]
 }

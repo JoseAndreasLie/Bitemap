@@ -27,6 +27,9 @@ struct ExplorePage: View {
             
             navigationContent
         }
+        .onAppear{
+            print()
+        }
         .sheet(isPresented: $showFilterSheet) {
             FilterSheet(viewModel: viewModel)
         }

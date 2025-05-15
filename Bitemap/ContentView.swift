@@ -51,7 +51,7 @@ struct MainTabView: View {
         TabView(selection: $selectedTab) {
             ForYouPage()
                 .tabItem {
-                    Label("For You", systemImage: selectedTab == 1 ? "heart.fill" : "heart")
+                    Label("For You", systemImage: selectedTab == 1 ? "star.fill" : "star")
                 }
                 .tag(1)
             
@@ -60,6 +60,11 @@ struct MainTabView: View {
                     Label("Explore", systemImage: selectedTab == 2 ? "map.fill" : "map")
                 }
                 .tag(2)
+            FavoritePage()
+                .tabItem {
+                    Label("Favorites", systemImage: selectedTab == 3 ? "heart.fill" : "heart")
+                }
+                .tag(3)
         }
         .tint(Color("CustomGreen")) // Use your CustomGreen for the selected tab
         .onAppear {
