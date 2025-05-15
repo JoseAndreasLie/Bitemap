@@ -45,17 +45,17 @@ struct LongCard: View {
 
                     .padding(0)
                     Spacer()
-                    // Alternative Views and Spacers
-                    VStack(alignment: .center, spacing: 0) {
+                    // Make heart button clickable
+                    Button(action: {
+                        isLiked.toggle()
+                    }) {
                         Image(systemName: isLiked ? "heart.fill" : "heart")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .padding(8)
                             .foregroundStyle(isLiked ? .red : .black)
                             .frame(width: 44, height: 44)
-                    }.padding(0)
-                        .frame(width: 44, height: 44, alignment: .center)
-                        .cornerRadius(44)
+                    }
                 }
                 .padding(0)
                 .frame(maxWidth: .infinity, alignment: .top)
