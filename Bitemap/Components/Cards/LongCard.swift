@@ -78,7 +78,7 @@ struct LongCard: View {
             .cornerRadius(16)
         }
         .frame(
-            minWidth: 370, maxWidth: 370, minHeight: 140, maxHeight: 140,
+            minWidth: 330, maxWidth: 370, minHeight: 110, maxHeight: 140,
             alignment: .center
         )
         .padding(8)
