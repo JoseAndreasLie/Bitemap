@@ -5,7 +5,6 @@
 //  Created by Jose Andreas Lie on 14/05/25.
 //
 
-import Foundation
 import SwiftUI
 
 struct LongCard: View {
@@ -14,86 +13,140 @@ struct LongCard: View {
     let image: String
     let tags: [String]
     @Binding var isLiked: Bool
-
+    @State private var heartPressed = false
+    @Environment(\.colorScheme) var colorScheme
+    
+    // Dynamic colors based on color scheme
+    private var cardBackgroundColor: Color {
+        colorScheme == .dark ? Color(UIColor.systemBackground) : Color(red: 0.99, green: 0.98, blue: 0.95)
+    }
+    
+    private var shadowColor: Color {
+        colorScheme == .dark ? Color.black.opacity(0.4) : Color.black.opacity(0.15)
+    }
+    
     var body: some View {
-        HStack(alignment: .center, spacing: 8) {
-            Image(image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 120, height: 120, alignment: .center)
-                .background(Color(red: 0.84, green: 0.84, blue: 0.84))
-                .cornerRadius(16)
-            VStack(alignment: .leading) {
-                // Space Between
-                HStack(alignment: .top) {
-                    // Space Between
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text(title)
-                            .font(
-                                Font.custom("SF Pro", size: 20)
-                                    .weight(.bold)
+        HStack(alignment: .center, spacing: 12) {
+            // Image with overlay gradient
+            ZStack(alignment: .bottomLeading) {
+                Image(image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 120, height: 120)
+                    .clipped()
+                    .overlay(
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .background(
+                                LinearGradient(
+                                    colors: [.clear, .black.opacity(0.3)],
+                                    startPoint: .top,
+                                    endPoint: .bottom
+                                )
                             )
-                            .foregroundColor(.black)
-                        HStack(alignment: .top) {
-                            Image(systemName: "mappin.and.ellipse.circle")
-                            Text(location)
-                        }
-                        .font(Font.custom("SF Pro", size: 12))
-                        .foregroundColor(
-                            Color(red: 0.19, green: 0.19, blue: 0.19))
-                    }
-
-                    .padding(0)
+                    )
+                    .cornerRadius(16)
+                
+                // Location pill directly on the image
+                HStack(spacing: 4) {
+                    Image(systemName: "mappin.circle.fill")
+                        .font(.system(size: 10))
+                    Text(location)
+                        .font(.system(size: 10, weight: .medium))
+                }
+                .padding(.horizontal, 8)
+                .padding(.vertical, 4)
+                .background(Color.black.opacity(0.6))
+                .foregroundColor(.white)
+                .cornerRadius(12)
+                .padding(8)
+            }
+            
+            VStack(alignment: .leading, spacing: 8) {
+                // Title and heart button
+                HStack(alignment: .top) {
+                    Text(title)
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundColor(.primary)
+                        .lineLimit(1)
+                    
                     Spacer()
-                    // Make heart button clickable
+                    
+                    // Heart button with animation
                     Button(action: {
-                        isLiked.toggle()
+                        withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
+                            heartPressed = true
+                            isLiked.toggle()
+                        }
+                        
+                        // Reset the animation state
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                            heartPressed = false
+                        }
                     }) {
                         Image(systemName: isLiked ? "heart.fill" : "heart")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .padding(8)
-                            .foregroundStyle(isLiked ? .red : .black)
-                            .frame(width: 44, height: 44)
+                            .font(.system(size: 18))
+                            .foregroundColor(isLiked ? .red : .gray)
+                            .frame(width: 32, height: 32)
+                            .contentShape(Rectangle())
+                            .scaleEffect(heartPressed ? 1.3 : 1.0)
                     }
+                    .buttonStyle(BorderlessButtonStyle())
                 }
-                .padding(0)
-                .frame(maxWidth: .infinity, alignment: .top)
+                
                 Spacer()
-                // Alternating Views and Spacers
+                
+                // Tags in horizontal scroll
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 4) {
-                        ForEach(tags, id: \.self) { tag in
+                    HStack(spacing: 6) {
+                        ForEach(tags.prefix(4), id: \.self) { tag in
                             ChipTag(tag: tag)
+                        }
+                        
+                        if tags.count > 4 {
+                            Text("+\(tags.count - 4)")
+                                .font(.system(size: 10, weight: .medium))
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 4)
+                                .background(Color("CustomGreen").opacity(0.2))
+                                .foregroundColor(Color("CustomGreen"))
+                                .cornerRadius(10)
                         }
                     }
                 }
-                .frame(width: 216, alignment: .leading)
             }
-            .padding(8)
-            .frame(
-                minWidth: 224, maxWidth: 224, maxHeight: .infinity,
-                alignment: .leading
-            )
-            .cornerRadius(16)
+            .frame(height: 100)
+            .padding(.vertical, 10)
         }
-        .frame(
-            minWidth: 330, maxWidth: 370, minHeight: 110, maxHeight: 140,
-            alignment: .center
+        .padding(12)
+        .background(cardBackgroundColor)
+        .cornerRadius(20)
+        .shadow(color: shadowColor, radius: 8, x: 0, y: 2)
+        .overlay(
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(Color.gray.opacity(0.1), lineWidth: 0.5)
         )
-        .padding(8)
-        .background(Color(red: 0.99, green: 0.97, blue: 0.89))
-        .cornerRadius(24)
-        .shadow(color: .black.opacity(0.25), radius: 1, x: 0, y: 4)
     }
 }
 
 #Preview {
-    LongCard(
-        title: "Kasturi",
-        location: "GOP 6",
-        image: "Kasturi",
-        tags: ["Vegan", "Spicy", "Halal", "Chicken"],
-        isLiked: .constant(false)
-    )
+    VStack(spacing: 16) {
+        LongCard(
+            title: "Kasturi Restaurant",
+            location: "GOP 6",
+            image: "Kasturi",
+            tags: ["Vegan", "Spicy", "Halal", "Chicken"],
+            isLiked: .constant(false)
+        )
+        
+        LongCard(
+            title: "D'Padang",
+            location: "Building B",
+            image: "map",
+            tags: ["Rice", "Spicy", "Halal"],
+            isLiked: .constant(true)
+        )
+    }
+    .padding()
+    .background(Color(UIColor.systemGray6))
 }
