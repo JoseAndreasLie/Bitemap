@@ -10,6 +10,7 @@ import SwiftUI
 struct ExploreView: View {
     @StateObject private var viewModel = ExploreViewModel()
     @State private var likedCanteens: Set<String> = []
+    @State private var animateCards = false
     
     var body: some View {
         NavigationStack {
@@ -17,10 +18,11 @@ struct ExploreView: View {
                 // Background gradient
                 LinearGradient(
                     gradient: Gradient(colors: [
-                        Color("FAFAFA").opacity(1)
+                        Color("FAFAFA").opacity(1),
+                        Color("FAFAFA").opacity(0.8)
                     ]),
-                    startPoint: .bottom,
-                    endPoint: .top
+                    startPoint: .top,
+                    endPoint: .bottom
                 )
                 .ignoresSafeArea()
                 
@@ -35,8 +37,8 @@ struct ExploreView: View {
                     
                     // Canteen list
                     ScrollView {
-                        VStack(spacing: 16) {
-                            ForEach(viewModel.filteredCanteens, id: \.id) { canteen in
+                        LazyVStack(spacing: 16) {
+                            ForEach(Array(viewModel.filteredCanteens.enumerated()), id: \.element.id) { index, canteen in
                                 NavigationLink(destination: CanteenDetailView(canteen: canteen)) {
                                     LongCard(
                                         title: canteen.nama,
@@ -45,12 +47,22 @@ struct ExploreView: View {
                                         tags: canteen.tags.map { $0.name },
                                         isLiked: binding(for: canteen.nama)
                                     )
+                                    .opacity(animateCards ? 1 : 0)
+                                    .offset(y: animateCards ? 0 : 20)
+                                    .animation(
+                                        .spring(response: 0.5, dampingFraction: 0.8)
+                                        .delay(Double(index) * 0.1),
+                                        value: animateCards
+                                    )
                                 }
-                                .buttonStyle(PlainButtonStyle())
+                                .buttonStyle(CardButtonStyle())
                             }
                         }
                         .padding(.horizontal, 16)
                         .padding(.vertical, 16)
+                    }
+                    .refreshable {
+                        await viewModel.refreshCanteens()
                     }
                 }
             }
@@ -62,6 +74,16 @@ struct ExploreView: View {
             .onAppear {
                 viewModel.loadCanteens()
                 loadLikedCanteens()
+                
+                // Animate cards when view appears
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    withAnimation {
+                        animateCards = true
+                    }
+                }
+            }
+            .onDisappear {
+                animateCards = false
             }
         }
     }

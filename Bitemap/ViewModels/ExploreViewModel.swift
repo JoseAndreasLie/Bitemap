@@ -85,4 +85,10 @@ final class ExploreViewModel: ObservableObject {
         let defaults = UserDefaults.standard
         return Set(defaults.stringArray(forKey: "likedCanteens") ?? [])
     }
+    
+    func refreshCanteens() async {
+        // Simulate network delay
+        try? await Task.sleep(nanoseconds: 1_000_000_000) // 1 second
+        loadCanteens() // or your existing reload method
+    }
 }

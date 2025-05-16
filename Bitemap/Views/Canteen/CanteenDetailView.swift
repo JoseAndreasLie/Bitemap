@@ -102,17 +102,17 @@ struct CanteenDetailView: View {
         }
         .navigationTitle(canteen.nama)
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                Button(action: {
-                    incrementPreferencesForCanteen()
-                    showMap.toggle()
-                }) {
-                    Image(systemName: "map")
-                        .font(.system(size: 16, weight: .semibold))
-                }
-            }
-        }
+//        .toolbar {
+//            ToolbarItem(placement: .primaryAction) {
+//                Button(action: {
+//                    incrementPreferencesForCanteen()
+//                    showMap.toggle()
+//                }) {
+//                    Image(systemName: "map")
+//                        .font(.system(size: 16, weight: .semibold))
+//                }
+//            }
+//        }
         .sheet(isPresented: $showMap) {
             CanteenMapView(canteen: canteen)
         }

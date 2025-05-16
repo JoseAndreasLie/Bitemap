@@ -82,4 +82,10 @@ final class ForYouViewModel: ObservableObject {
     private func savePreferences() {
         preferencesService.savePreferences(userPreferences)
     }
+    
+    func refreshCanteens() async {
+        // Simulate network delay
+        try? await Task.sleep(nanoseconds: 1_000_000_000) // 1 second
+        loadCanteens() // or your existing reload method
+    }
 }

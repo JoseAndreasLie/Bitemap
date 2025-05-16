@@ -5,25 +5,27 @@ struct ForYouView: View {
     @State private var showingPreferences = false
     @State private var showingConfirmation = false
     @State private var likedCanteens: Set<String> = []
+    @State private var animateCards = false
     
     var body: some View {
         NavigationStack {
             ZStack {
-                // Background gradient
-//                Color("#FAFAFA")
                 LinearGradient(
                     gradient: Gradient(colors: [
-                        Color("FAFAFA").opacity(1)
+                        Color("FAFAFA").opacity(1),
+                        Color("FAFAFA").opacity(0.8)
                     ]),
-                    startPoint: .bottom,
-                    endPoint: .top
+                    startPoint: .top,
+                    endPoint: .bottom
                 )
                 .ignoresSafeArea()
                 
                 if viewModel.userPreferences.isEmpty {
                     emptyStateView
+                        .transition(.opacity)
                 } else if viewModel.topRecommendedCanteens.isEmpty {
                     noRecommendationsView
+                        .transition(.opacity)
                 } else {
                     recommendationsView
                 }
@@ -32,6 +34,16 @@ struct ForYouView: View {
             .onAppear {
                 viewModel.loadUserPreferences()
                 loadLikedCanteens()
+                
+                // Animate cards when view appears
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    withAnimation {
+                        animateCards = true
+                    }
+                }
+            }
+            .onDisappear {
+                animateCards = false
             }
             .fullScreenCover(isPresented: $showingPreferences) {
                 PreferenceView {
@@ -50,6 +62,44 @@ struct ForYouView: View {
         }
     }
     
+    private var recommendationsView: some View {
+        ScrollView {
+            LazyVStack(spacing: 16) {
+                ForEach(Array(viewModel.topRecommendedCanteens.enumerated()), id: \.element.id) { index, canteen in
+                    NavigationLink(destination: CanteenDetailView(canteen: canteen)) {
+                        LongCard(
+                            title: canteen.nama,
+                            location: canteen.location.name,
+                            image: canteen.location.images.last ?? "map",
+                            tags: canteen.tags.map { $0.name },
+                            isLiked: binding(for: canteen.nama)
+                        )
+                        .opacity(animateCards ? 1 : 0)
+                        .offset(y: animateCards ? 0 : 20)
+                        .animation(
+                            .spring(response: 0.5, dampingFraction: 0.8)
+                            .delay(Double(index) * 0.1),
+                            value: animateCards
+                        )
+                    }
+                    .buttonStyle(CardButtonStyle())
+                    .onTapGesture {
+                        // Increment tag counts when user taps a canteen
+                        for tag in canteen.tags {
+                            viewModel.incrementTagCount(for: tag.name)
+                        }
+                    }
+                }
+                resetPreferencesButton
+                    .padding(.vertical, 16)
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 16)
+        }
+        .refreshable {
+            await viewModel.refreshCanteens()
+        }
+    }
     // Create a binding for the liked state of each canteen
     private func binding(for canteenName: String) -> Binding<Bool> {
         return Binding(
@@ -87,34 +137,34 @@ struct ForYouView: View {
         }
     }
     
-    private var recommendationsView: some View {
-        ScrollView {
-            VStack(spacing: 16) {
-                ForEach(viewModel.topRecommendedCanteens, id: \.id) { canteen in
-                    NavigationLink(destination: CanteenDetailView(canteen: canteen)) {
-                        LongCard(
-                            title: canteen.nama,
-                            location: canteen.location.name,
-                            image: canteen.location.images.last ?? "map",
-                            tags: canteen.tags.map { $0.name },
-                            isLiked: binding(for: canteen.nama)
-                        )
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    .onTapGesture {
-                        // Increment tag counts when user taps a canteen
-                        for tag in canteen.tags {
-                            viewModel.incrementTagCount(for: tag.name)
-                        }
-                    }
-                }
-                resetPreferencesButton
-                    .padding(.vertical, 16)
-            }
-            .padding(.horizontal, 16)
-            .padding(.vertical, 16)
-        }
-    }
+//    private var recommendationsView: some View {
+//        ScrollView {
+//            VStack(spacing: 16) {
+//                ForEach(viewModel.topRecommendedCanteens, id: \.id) { canteen in
+//                    NavigationLink(destination: CanteenDetailView(canteen: canteen)) {
+//                        LongCard(
+//                            title: canteen.nama,
+//                            location: canteen.location.name,
+//                            image: canteen.location.images.last ?? "map",
+//                            tags: canteen.tags.map { $0.name },
+//                            isLiked: binding(for: canteen.nama)
+//                        )
+//                    }
+//                    .buttonStyle(PlainButtonStyle())
+//                    .onTapGesture {
+//                        // Increment tag counts when user taps a canteen
+//                        for tag in canteen.tags {
+//                            viewModel.incrementTagCount(for: tag.name)
+//                        }
+//                    }
+//                }
+//                resetPreferencesButton
+//                    .padding(.vertical, 16)
+//            }
+//            .padding(.horizontal, 16)
+//            .padding(.vertical, 16)
+//        }
+//    }
     
     private var emptyStateView: some View {
         VStack(spacing: 24) {
